@@ -5597,6 +5597,210 @@
 }
 
 /* ═══════════════════════════════════════════════════════
+   SLIDE 10 — The Decision Lab
+   ═══════════════════════════════════════════════════════ */
+
+.slide-decision-lab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  padding: 2rem 3rem;
+}
+
+.sdl-inner {
+  max-width: 1050px;
+  width: 100%;
+}
+
+.sdl-top {
+  text-align: center;
+  margin-bottom: 1.6rem;
+}
+
+.sdl-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #6366f1;
+  background: rgba(99, 102, 241, 0.08);
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+  margin-bottom: 0.6rem;
+  opacity: 0;
+}
+.slide-decision-lab.loaded .sdl-label {
+  animation: sdl-fadeUp 0.5s ease forwards;
+}
+
+.sdl-title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #111827;
+  letter-spacing: -0.02em;
+  margin: 0.4rem 0 0.5rem;
+  opacity: 0;
+  transform: translateY(16px);
+}
+.slide-decision-lab.loaded .sdl-title {
+  animation: sdl-fadeUp 0.7s 0.1s ease forwards;
+}
+
+.sdl-subtitle {
+  font-size: 1.05rem;
+  color: #6b7280;
+  opacity: 0;
+}
+.slide-decision-lab.loaded .sdl-subtitle {
+  animation: sdl-fadeUp 0.5s 0.2s ease forwards;
+}
+
+.sdl-content {
+  display: flex;
+  gap: 2.4rem;
+  align-items: flex-start;
+}
+
+.sdl-left {
+  flex: 1;
+  min-width: 0;
+}
+
+.sdl-right {
+  flex: 1;
+  min-width: 0;
+  opacity: 0;
+  transform: translateX(20px);
+}
+.slide-decision-lab.loaded .sdl-right {
+  animation: sdl-slideIn 0.7s 0.3s ease forwards;
+}
+
+.sdl-image-wrap {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.sdl-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Participants */
+.sdl-participants {
+  margin-bottom: 1.2rem;
+}
+
+.sdl-participants-label,
+.sdl-layers-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #9ca3af;
+  margin-bottom: 0.5rem;
+}
+
+.sdl-participant {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.4rem 0.8rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+  color: #1f2937;
+  opacity: 0;
+  transform: translateY(8px);
+}
+.slide-decision-lab.loaded .sdl-participant {
+  animation: sdl-fadeUp 0.4s ease forwards;
+}
+
+.sdl-participant-icon {
+  font-size: 1.1rem;
+}
+
+.sdl-participant-name {
+  font-weight: 600;
+}
+
+/* Layers */
+.sdl-layers {
+  margin-bottom: 1.2rem;
+}
+
+.sdl-layer {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  padding: 0.55rem 0;
+  opacity: 0;
+  transform: translateX(-12px);
+}
+.slide-decision-lab.loaded .sdl-layer {
+  animation: sdl-slideInLeft 0.45s ease forwards;
+}
+
+.sdl-layer-bar {
+  width: 4px;
+  min-height: 32px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.sdl-layer-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.sdl-layer-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.sdl-layer-desc {
+  font-size: 0.82rem;
+  color: #6b7280;
+  line-height: 1.4;
+}
+
+.sdl-closing {
+  font-size: 1.05rem;
+  color: #374151;
+  margin-top: 0.4rem;
+  opacity: 0;
+}
+.slide-decision-lab.loaded .sdl-closing {
+  animation: sdl-fadeUp 0.6s 1s ease forwards;
+}
+.sdl-closing strong {
+  color: #6366f1;
+}
+
+@keyframes sdl-fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes sdl-slideIn {
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes sdl-slideInLeft {
+  to { opacity: 1; transform: translateX(0); }
+}
+
+
+/* ═══════════════════════════════════════════════════════
    SLIDE 13 — Let's Pilot One Term Together
    ═══════════════════════════════════════════════════════ */
 

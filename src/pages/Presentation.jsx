@@ -21,6 +21,7 @@ import imgGrade12 from '../assets/grade12.png';
 import platformVideo2 from '../assets/platform2.mp4';
 import imgLyceeLogo from '../assets/lycee-logo-2020-200.png';
 import imgWeguideLogo from '../assets/weguide_logo.svg';
+import imgDecisionLab from '../assets/decision lab.png';
 
 /* ── Slide data ── */
 const SLIDES = [
@@ -1159,6 +1160,79 @@ const SLIDES = [
                 Mazen didn&rsquo;t guess his future.<br />
                 <strong>He accumulated evidence for it.</strong>
               </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  },
+
+  /* ── Slide 10 — The Decision Lab ── */
+  function SlideDecisionLab() {
+    const [loaded, setLoaded] = useState(false);
+    useEffect(() => {
+      const t = setTimeout(() => setLoaded(true), 80);
+      return () => clearTimeout(t);
+    }, []);
+
+    const participants = [
+      { icon: '👨‍👩‍👦', label: 'Parents' },
+      { icon: '🧭', label: 'Counselors' },
+      { icon: '🟣', label: 'WeGuide Team' },
+    ];
+
+    const layers = [
+      { label: 'Identity Signals', desc: 'Who Mazen is becoming — values, interests, strengths', color: '#6366f1' },
+      { label: 'Skill Portfolio', desc: '6 years of studio artifacts, project outcomes, and peer feedback', color: '#8b5cf6' },
+      { label: 'Behavioral Patterns', desc: 'Consistency, collaboration style, leadership moments', color: '#a78bfa' },
+      { label: 'Career & Academic Alignment', desc: 'Evidence-based matches to university paths and career fields', color: '#c084fc' },
+    ];
+
+    return (
+      <div className={`slide slide-decision-lab ${loaded ? 'loaded' : ''}`}>
+        <div className="sdl-inner">
+          <div className="sdl-top">
+            <span className="sdl-label">After 6 Years of Structured Growth</span>
+            <h1 className="sdl-title">The Decision Lab</h1>
+            <p className="sdl-subtitle">
+              Where years of accumulated evidence meet the people who matter most.
+            </p>
+          </div>
+
+          <div className="sdl-content">
+            <div className="sdl-left">
+              <div className="sdl-participants">
+                <div className="sdl-participants-label">Around the table:</div>
+                {participants.map((p, i) => (
+                  <div className="sdl-participant" key={i} style={{ animationDelay: `${0.4 + i * 0.1}s` }}>
+                    <span className="sdl-participant-icon">{p.icon}</span>
+                    <span className="sdl-participant-name">{p.label}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="sdl-layers">
+                <div className="sdl-layers-label">What's on the table:</div>
+                {layers.map((l, i) => (
+                  <div className="sdl-layer" key={i} style={{ animationDelay: `${0.6 + i * 0.12}s` }}>
+                    <div className="sdl-layer-bar" style={{ background: l.color }} />
+                    <div className="sdl-layer-text">
+                      <span className="sdl-layer-name">{l.label}</span>
+                      <span className="sdl-layer-desc">{l.desc}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <p className="sdl-closing">
+                Mazen doesn't guess. <strong>He decides with evidence.</strong>
+              </p>
+            </div>
+
+            <div className="sdl-right">
+              <div className="sdl-image-wrap">
+                <img src={imgDecisionLab} alt="The Decision Lab" className="sdl-image" />
+              </div>
             </div>
           </div>
         </div>

@@ -2,7 +2,10 @@
   "permissions": {
     "allow": [
       "Bash(gh repo create weguide-sales-pitch --public --source=. --push --remote=origin)",
-      "Bash(git remote set-url origin https://github.com/mazen-alhammoud/weguide-sales-pitch.git)"
+      "Bash(git remote set-url origin https://github.com/mazen-alhammoud/weguide-sales-pitch.git)",
+      "Bash(git config http.postBuffer 157286400)",
+      "Bash(gh api repos/mazen-alhammoud/weguide-sales-pitch/pages -X POST -f build_type=workflow -f source='{\"\"branch\"\":\"\"main\"\",\"\"path\"\":\"\"/\"\"}')",
+      "Bash(gh api:*)"
     ]
   }
 }
