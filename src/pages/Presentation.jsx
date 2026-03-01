@@ -3,119 +3,219 @@ import { useNavigate } from 'react-router-dom';
 import './Presentation.css';
 import studiosVideo from '../assets/Studios.mp4';
 import platformVideo from '../assets/Platform.mp4';
+import imgDrifter from '../assets/The High-Performing Drifter.png';
+import imgSlipper from '../assets/The Silent Slipper.png';
+import imgDreamer from '../assets/The Borrowed Dreamer.png';
+import imgPanicker from '../assets/The October Panicker.png';
+import imgPlatform1 from '../assets/weguide-platform.png';
+import imgPlatform2 from '../assets/weguide-platform-2.png';
+import imgPlatform3 from '../assets/weguide-platform-3.png';
+import imgPlatform4 from '../assets/weguide-platform-4.png';
+import imgMazen from '../assets/Mazen.png';
+import imgGrade7 from '../assets/grade7.png';
+import imgGrade8 from '../assets/grade8.png';
+import imgGrade9 from '../assets/grade9.png';
+import imgGrade10 from '../assets/grade10.png';
+import imgGrade11 from '../assets/grade11.png';
+import imgGrade12 from '../assets/grade12.png';
+import platformVideo2 from '../assets/platform2.mp4';
+import imgLyceeLogo from '../assets/lycee-logo-2020-200.png';
+import imgWeguideLogo from '../assets/weguide_logo.svg';
 
 /* ── Slide data ── */
 const SLIDES = [
-  function Slide1() {
+  function SlidePersonas() {
     const [loaded, setLoaded] = useState(false);
     useEffect(() => {
       const t = setTimeout(() => setLoaded(true), 80);
       return () => clearTimeout(t);
     }, []);
 
+    const personas = [
+      {
+        num: '01',
+        name: 'The High-Performing Drifter',
+        tag: 'High achiever, no direction',
+        quote: 'Top grades. Strong resume. No internal clarity.',
+        desc: 'Performs well but lacks identity-based direction. Success without strategy.',
+        img: imgDrifter,
+        icon: (
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M18 20V10" /><path d="M12 20V4" /><path d="M6 20v-6" />
+          </svg>
+        ),
+      },
+      {
+        num: '02',
+        name: 'The Silent Slipper',
+        tag: 'Falling behind, unnoticed',
+        quote: 'Not failing. Just slowly disengaging.',
+        desc: 'Motivation fluctuates. Potential exists but is not activated.',
+        img: imgSlipper,
+        icon: (
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="10" /><path d="M12 8v4" /><path d="M12 16h.01" />
+          </svg>
+        ),
+      },
+      {
+        num: '03',
+        name: 'The Borrowed Dreamer',
+        tag: 'Parent-driven student',
+        quote: 'Ambition outsourced.',
+        desc: 'Path shaped by expectations rather than self-awareness.',
+        img: imgDreamer,
+        icon: (
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
+        ),
+      },
+      {
+        num: '04',
+        name: 'The October Panicker',
+        tag: 'Grade 12 crisis student',
+        quote: 'University deadlines approaching.',
+        desc: 'Decisions made under pressure, not evidence.',
+        img: imgPanicker,
+        icon: (
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
+          </svg>
+        ),
+      },
+    ];
+
     return (
-      <div className="slide slide-1">
+      <div className="slide slide-personas">
         <div className="slide-bg" />
         <div className="slide-glow slide-glow--1" />
         <div className="slide-glow slide-glow--2" />
         <div className="slide-dots" />
 
-        <div className={`slide-inner slide-inner--split ${loaded ? 'loaded' : ''}`}>
-          {/* Left — Text */}
-          <div className="slide-split-left">
-            <span className="slide-label">A SHARED COMMITMENT</span>
+        <div className={`slide-inner ${loaded ? 'loaded' : ''}`}>
+          <span className="slide-label">THE STUDENTS WE SEE EVERY DAY</span>
 
-            <h1 className="slide-headline">
-              The future facing students is more{' '}
-              <span className="slide-gradient">uncertain and complex than ever.</span>
-            </h1>
+          <h1 className="slide-headline">
+            Four students.{' '}
+            <span className="slide-gradient">Same school. Different struggles.</span>
+          </h1>
 
-            <p className="slide-subheader">
-              Our vision is simple: no student should face a life-defining
-              decision without the mindset, skills, and agency to navigate
-              it with confidence.
-            </p>
+          <p className="slide-subheader">
+            These are not edge cases — they represent patterns that exist in every
+            school, often unnoticed until it is too late.
+          </p>
+
+          <div className="sp-cards">
+            {personas.map((p) => (
+              <div key={p.num} className="sp-card">
+                <div className="sp-img">
+                  <span className="sp-img-num">{p.num}</span>
+                  <div className="sp-img-icon">{p.icon}</div>
+                  <img className="sp-img-photo" src={p.img} alt={p.name} />
+                </div>
+
+                <div className="sp-body">
+                  <h3 className="sp-name">{p.name}</h3>
+                  <span className="sp-tag">{p.tag}</span>
+                  <p className="sp-quote">{p.quote}</p>
+                  <p className="sp-desc">{p.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
 
-          {/* Right — Graphic */}
-          <div className="slide-split-right">
-            <div className="converge converge--vertical">
-              {/* Three stakeholder cards with connectors */}
-              <div className="converge-spokes converge-spokes--vertical">
-                <div className="converge-spoke converge-spoke--1">
-                  <div className="converge-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                      <polyline points="9 22 9 12 15 12 15 22" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="converge-title">Families</h4>
-                    <p className="converge-desc">Want clarity on their child&rsquo;s direction, strengths, and readiness for what comes next</p>
-                  </div>
-                </div>
+          <p className="slide-takeaway">
+            None of these students need fixing. They need a system designed to develop them.
+          </p>
+        </div>
+      </div>
+    );
+  },
 
-                <div className="converge-connector" aria-hidden="true">
-                  <span className="converge-connector-dot" />
-                  <span className="converge-connector-line" />
-                  <span className="converge-connector-dot" />
-                </div>
+  function SlideEconomy() {
+    const [loaded, setLoaded] = useState(false);
+    useEffect(() => {
+      const t = setTimeout(() => setLoaded(true), 80);
+      return () => clearTimeout(t);
+    }, []);
 
-                <div className="converge-spoke converge-spoke--2">
-                  <div className="converge-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-                      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="converge-title">Educators</h4>
-                    <p className="converge-desc">Need structured ways to develop the whole student beyond academic outcomes</p>
-                  </div>
-                </div>
+    const tableRows = [
+      { school: 'GPA & exam averages', economy: 'Demonstrated skill portfolios' },
+      { school: 'University placement rate', economy: 'Career adaptability over 40-year span' },
+      { school: 'Curriculum coverage', economy: 'Applied problem-solving in ambiguity' },
+      { school: 'Content mastery', economy: 'Systems thinking & AI collaboration' },
+      { school: 'Classroom compliance', economy: 'Initiative & self-directed execution' },
+      { school: 'Standardized test performance', economy: 'Evidence of impact & project output' },
+      { school: 'Short-term achievement', economy: 'Longitudinal skill compounding' },
+    ];
 
-                <div className="converge-connector" aria-hidden="true">
-                  <span className="converge-connector-dot" />
-                  <span className="converge-connector-line" />
-                  <span className="converge-connector-dot" />
-                </div>
+    const stats = [
+      { value: '40\u201350%', label: 'of current task structures will be automated or AI-augmented' },
+      { value: '5\u20137', label: 'career pivots will become the average over a lifetime' },
+      { value: 'Proof-of-work', label: 'hiring increasingly evaluates portfolios, projects, and real output' },
+      { value: 'Soft skills', label: 'become hard economic currency in every sector' },
+    ];
 
-                <div className="converge-spoke converge-spoke--3">
-                  <div className="converge-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                      <circle cx="12" cy="12" r="10" />
-                      <path d="M2 12h20" />
-                      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="converge-title">Communities</h4>
-                    <p className="converge-desc">Depend on graduates who are adaptable, skilled, and prepared to contribute meaningfully</p>
-                  </div>
-                </div>
-              </div>
+    return (
+      <div className="slide slide-economy">
+        <div className="slide-bg" />
+        <div className="slide-glow slide-glow--1" />
+        <div className="slide-glow slide-glow--2" />
+        <div className="slide-dots" />
 
-              {/* Connector to hub */}
-              <div className="converge-to-hub" aria-hidden="true">
-                <span className="converge-connector-dot" />
-                <span className="converge-connector-line converge-connector-line--long" />
-                <svg className="converge-arrow" width="14" height="10" viewBox="0 0 14 10" fill="none">
-                  <path d="M1 1l6 8 6-8" stroke="rgba(99,102,241,0.4)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
+        <div className={`slide-inner ${loaded ? 'loaded' : ''}`}>
+          <span className="slide-label">2035 LABOR MARKET REALITY</span>
 
-              {/* Center hub */}
-              <div className="converge-hub-wrap">
-                <div className="converge-hub">
-                  <div className="converge-hub-ring" />
-                  <div className="converge-hub-core">
-                    <span className="converge-hub-label">Student</span>
-                    <span className="converge-hub-sub">The future each student is capable of building.</span>
-                  </div>
+          <h1 className="slide-headline">
+            Where traditional systems focus vs.{' '}
+            <span className="slide-gradient">where the 2035 economy is heading.</span>
+          </h1>
+
+          <p className="slide-subheader">
+            By 2035, three forces dominate: AI-augmented work, project-based
+            and portfolio hiring, and faster skill obsolescence cycles. The
+            fastest-growing value drivers are cognitive flexibility, digital
+            fluency, and identity-driven decision making.
+          </p>
+
+          {/* Comparison table */}
+          <div className="se-table-wrap">
+            <table className="se-table">
+              <thead>
+                <tr>
+                  <th className="se-th se-th--school">Current System Focus (2026)</th>
+                  <th className="se-th se-th--economy">What the 2035 Economy Rewards</th>
+                </tr>
+              </thead>
+              <tbody>
+                {tableRows.map((row, i) => (
+                  <tr key={i} className="se-row">
+                    <td className="se-td se-td--school">{row.school}</td>
+                    <td className="se-td se-td--economy">{row.economy}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Economic stats */}
+          <div className="se-stats">
+            <span className="se-stats-label">By 2035</span>
+            <div className="se-stats-grid">
+              {stats.map((s, i) => (
+                <div key={i} className="se-stat">
+                  <span className="se-stat-value">{s.value}</span>
+                  <span className="se-stat-label">{s.label}</span>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
+
+          <p className="slide-source">
+            Sources: World Economic Forum, Future of Jobs Report &middot; McKinsey
+            &amp; Company &middot; OECD Employment Outlook
+          </p>
         </div>
       </div>
     );
@@ -148,1428 +248,1340 @@ const SLIDES = [
             develop these outcomes systematically, across years, with continuity and evidence.
           </p>
 
-          {/* Historical timeline — 4 eras */}
-          <div className="slide-timeline">
-            {/* Row labels */}
-            <div className="tl-labels">
-              <div className="tl-labels-spacer" />
-              <div className="tl-row-label">Economy</div>
-              <div className="tl-row-label">Education</div>
-              <div className="tl-row-label">Learner</div>
-            </div>
-
-            {/* Era 1 */}
-            <div className="tl-era">
-              <div className="tl-era-header">
-                <span className="tl-era-num">01</span>
-                <h4 className="tl-era-title">Industrial Revolution</h4>
-                <span className="tl-era-period">Late 18th – Early 20th C.</span>
-              </div>
-              <div className="tl-era-cell">Mechanization, steam &amp; electricity</div>
-              <div className="tl-era-cell">Mass literacy, elite access</div>
-              <div className="tl-era-cell">Basic literacy, generalist workforce</div>
-            </div>
-
-            {/* Era 2 */}
-            <div className="tl-era">
-              <div className="tl-era-header">
-                <span className="tl-era-num">02</span>
-                <h4 className="tl-era-title">Specialization Era</h4>
-                <span className="tl-era-period">Mid 20th Century</span>
-              </div>
-              <div className="tl-era-cell">Division of labor, process automation</div>
-              <div className="tl-era-cell">Mass secondary, professional preparation</div>
-              <div className="tl-era-cell">Subject-specialized, linear career paths</div>
-            </div>
-
-            {/* Era 3 */}
-            <div className="tl-era">
-              <div className="tl-era-header">
-                <span className="tl-era-num">03</span>
-                <h4 className="tl-era-title">Digital Era</h4>
-                <span className="tl-era-period">Late 20th – Early 21st C.</span>
-              </div>
-              <div className="tl-era-cell">Digitization, globalization</div>
-              <div className="tl-era-cell">Credentialing, competitive placement</div>
-              <div className="tl-era-cell">High-performing academic achiever</div>
-            </div>
-
-            {/* Era 4 — highlighted */}
-            <div className="tl-era tl-era--active">
-              <div className="tl-era-header">
-                <span className="tl-era-num tl-era-num--active">04</span>
-                <h4 className="tl-era-title tl-era-title--active">AI &amp; Acceleration</h4>
-                <span className="tl-era-period">Today &rarr; Tomorrow</span>
-              </div>
-              <div className="tl-era-cell tl-era-cell--active">AI automation, rapid skill half-life, nonlinear careers</div>
-              <div className="tl-era-cell tl-era-cell--active">Skills-based, self-directed, lifelong learning</div>
-              <div className="tl-era-cell tl-era-cell--active">Adaptable, identity-aware, capable of continuous reinvention</div>
-              <div className="tl-weguide">
-                <span className="tl-weguide-label">WeGuide</span>
-                <span className="tl-weguide-desc">Institutionalizing development for the skills-based era</span>
-              </div>
-            </div>
-          </div>
-
-          <p className="slide-source">
-            Source: Boston Consulting Group, <em>The Power of Disruption in K-12 Education</em>, December 16, 2024.
-          </p>
-        </div>
-      </div>
-    );
-  },
-
-  function Slide3() {
-    const [loaded, setLoaded] = useState(false);
-    useEffect(() => {
-      const t = setTimeout(() => setLoaded(true), 80);
-      return () => clearTimeout(t);
-    }, []);
-
-    return (
-      <div className="slide slide-3">
-        <div className="slide-bg" />
-        <div className="slide-glow slide-glow--1" />
-        <div className="slide-glow slide-glow--2" />
-        <div className="slide-dots" />
-
-        <div className={`slide-inner ${loaded ? 'loaded' : ''}`}>
-          <span className="slide-label">THE STUDENT IMPACT</span>
-
-          <h1 className="slide-headline">
-            Many students graduate academically strong,{' '}
-            <span className="slide-gradient">but directionally unprepared.</span>
-          </h1>
-
-          <p className="slide-subheader">
-            When development is left to chance, students often enter Grade 11–12 making high-stakes choices with limited structured guidance,
-            unclear self-understanding, and little evidence of who they are becoming beyond grades.
-          </p>
-
-          {/* Three pillars */}
-          <div className="s3-pillars">
-            {/* Pillar 1 — neutral */}
-            <div className="s3-pillar">
-              <div className="s3-pillar-header">
-                <span className="s3-pillar-num">01</span>
-                <div className="s3-pillar-icon">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                  </svg>
-                </div>
-              </div>
-              <h3 className="s3-pillar-title">Decisions Become Pressure-Driven</h3>
-              <p className="s3-pillar-desc">Students often default to:</p>
-              <ul className="s3-pillar-list">
-                <li>External expectations</li>
-                <li>Prestige-driven pathways</li>
-                <li>Last-minute major selection</li>
-              </ul>
-            </div>
-
-            {/* Pillar 2 — transitional */}
-            <div className="s3-pillar s3-pillar--mid">
-              <div className="s3-pillar-header">
-                <span className="s3-pillar-num">02</span>
-                <div className="s3-pillar-icon">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10" />
-                    <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
-                  </svg>
-                </div>
-              </div>
-              <h3 className="s3-pillar-title">Capabilities Stay Invisible</h3>
-              <p className="s3-pillar-desc">Beyond grades, students lack:</p>
-              <ul className="s3-pillar-list">
-                <li>Documented skill evidence</li>
-                <li>Growth narrative continuity</li>
-                <li>Clarity signals over time</li>
-                <li>Reflective decision habits</li>
-              </ul>
-            </div>
-
-            {/* Pillar 3 — highlighted */}
-            <div className="s3-pillar s3-pillar--active">
-              <div className="s3-pillar-header">
-                <span className="s3-pillar-num s3-pillar-num--active">03</span>
-                <div className="s3-pillar-icon s3-pillar-icon--active">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="2" y="2" width="20" height="20" rx="2" />
-                    <line x1="2" y1="8" x2="22" y2="8" />
-                    <line x1="8" y1="2" x2="8" y2="22" />
-                  </svg>
-                </div>
-              </div>
-              <h3 className="s3-pillar-title s3-pillar-title--active">Development Needs a System</h3>
-              <p className="s3-pillar-desc">
-                Direction and adaptability do not emerge incidentally. Students need structured progression, reflection,
-                and longitudinal guidance — starting early.
-              </p>
-              <span className="s3-inflection">This is the missing architecture.</span>
-            </div>
-          </div>
-
-          <p className="slide-takeaway">
-            The gap is not academic performance; it is the absence of a structured pathway from uncertainty to clarity.
-          </p>
-        </div>
-      </div>
-    );
-  },
-
-  function Slide4() {
-    const [loaded, setLoaded] = useState(false);
-    useEffect(() => {
-      const t = setTimeout(() => setLoaded(true), 80);
-      return () => clearTimeout(t);
-    }, []);
-
-    /* Radar chart geometry — 6 dimensions on a hexagonal grid */
-    const cx = 220, cy = 155, outerR = 105;
-    const dims = [
-      { label: 'Cognitive Thinking', pct: 0.85 },
-      { label: 'Creative Expression', pct: 0.72 },
-      { label: 'Social Connection', pct: 0.78 },
-      { label: 'Self-Awareness', pct: 0.88 },
-      { label: 'Digital Fluency', pct: 0.68 },
-      { label: 'Physical Wellbeing', pct: 0.80 },
-    ];
-
-    const pt = (angle, r) => {
-      const rad = (angle - 90) * (Math.PI / 180);
-      return [cx + r * Math.cos(rad), cy + r * Math.sin(rad)];
-    };
-
-    const hexPoints = (r) =>
-      [0, 60, 120, 180, 240, 300].map((a) => pt(a, r).join(',')).join(' ');
-
-    const filledPoints = dims
-      .map((d, i) => pt(i * 60, outerR * d.pct).join(','))
-      .join(' ');
-
-    /* Label positions — pushed outward from hex vertices */
-    const labelOffset = outerR + 28;
-    const labelPositions = [0, 60, 120, 180, 240, 300].map((a) => {
-      const [x, y] = pt(a, labelOffset);
-      let anchor = 'middle';
-      if (a === 60 || a === 120) anchor = 'start';
-      if (a === 240 || a === 300) anchor = 'end';
-      return { x, y: a === 180 ? y + 4 : a === 0 ? y - 2 : y + 2, anchor };
-    });
-
-    return (
-      <div className="slide slide-4">
-        <div className="slide-bg" />
-        <div className="slide-glow slide-glow--1" />
-        <div className="slide-glow slide-glow--2" />
-        <div className="slide-dots" />
-
-        <div className={`slide-inner ${loaded ? 'loaded' : ''}`}>
-          <span className="slide-label">THE WEGUIDE FRAMEWORK</span>
-
-          <h1 className="slide-headline">
-            WeGuide is a structured, multi-year architecture for{' '}
-            <span className="slide-gradient">student development.</span>
-          </h1>
-
-          <p className="slide-subheader">
-            A longitudinal framework that builds identity clarity, transferable capability, and decision readiness
-            from early adolescence through graduation.
-          </p>
-
-          {/* Two graphics side-by-side */}
-          <div className="s4-graphics">
-            {/* Left — Radar chart */}
-            <div className="s4-radar">
-              <h3 className="s4-section-title">The 6 Dimensions of Human Development&trade;</h3>
-              <svg
-                className="s4-radar-svg"
-                viewBox="0 0 440 320"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                {/* Grid rings */}
-                <polygon points={hexPoints(outerR)} className="s4-hex-ring" />
-                <polygon points={hexPoints(outerR * 0.66)} className="s4-hex-ring" />
-                <polygon points={hexPoints(outerR * 0.33)} className="s4-hex-ring" />
-
-                {/* Axis lines from center to each vertex */}
-                {[0, 60, 120, 180, 240, 300].map((a) => {
-                  const [x2, y2] = pt(a, outerR);
-                  return (
-                    <line
-                      key={a}
-                      x1={cx}
-                      y1={cy}
-                      x2={x2}
-                      y2={y2}
-                      className="s4-hex-axis"
-                    />
-                  );
-                })}
-
-                {/* Filled area */}
-                <polygon points={filledPoints} className="s4-hex-fill" />
-
-                {/* Data points */}
-                {dims.map((d, i) => {
-                  const [dx, dy] = pt(i * 60, outerR * d.pct);
-                  return <circle key={i} cx={dx} cy={dy} r="4" className="s4-hex-dot" />;
-                })}
-
-                {/* Center dot */}
-                <circle cx={cx} cy={cy} r="3" className="s4-hex-center" />
-
-                {/* Labels */}
-                {dims.map((d, i) => (
-                  <text
-                    key={i}
-                    x={labelPositions[i].x}
-                    y={labelPositions[i].y}
-                    textAnchor={labelPositions[i].anchor}
-                    className="s4-hex-label"
-                  >
-                    {d.label}
-                  </text>
-                ))}
-              </svg>
-            </div>
-
-            {/* Right — Developmental phases */}
-            <div className="s4-phases">
-              <h3 className="s4-section-title">Three Developmental Phases</h3>
-
-              <div className="s4-phase-list">
-                <div className="s4-phase s4-phase--1">
-                  <div className="s4-phase-badge">01</div>
-                  <div className="s4-phase-content">
-                    <span className="s4-phase-grades">Grades 7–8</span>
-                    <h4 className="s4-phase-name">Exploration</h4>
-                    <p className="s4-phase-desc">
-                      Students discover interests, strengths, and early identity
-                      through broad exposure and guided reflection.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="s4-phase-connector" aria-hidden="true">
-                  <span className="s4-phase-connector-line" />
-                  <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-                    <path d="M1 1l4 6 4-6" stroke="rgba(99,102,241,0.35)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
-
-                <div className="s4-phase s4-phase--2">
-                  <div className="s4-phase-badge s4-phase-badge--mid">02</div>
-                  <div className="s4-phase-content">
-                    <span className="s4-phase-grades">Grades 9–10</span>
-                    <h4 className="s4-phase-name">Skill Development</h4>
-                    <p className="s4-phase-desc">
-                      Students deepen capabilities across dimensions, building
-                      transferable skills and personal direction.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="s4-phase-connector" aria-hidden="true">
-                  <span className="s4-phase-connector-line" />
-                  <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-                    <path d="M1 1l4 6 4-6" stroke="rgba(99,102,241,0.35)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
-
-                <div className="s4-phase s4-phase--3">
-                  <div className="s4-phase-badge s4-phase-badge--active">03</div>
-                  <div className="s4-phase-content">
-                    <span className="s4-phase-grades">Grades 11–12</span>
-                    <h4 className="s4-phase-name s4-phase-name--active">Integration</h4>
-                    <p className="s4-phase-desc">
-                      Students synthesize growth into a coherent identity and
-                      actionable post-graduation direction.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  },
-
-  function Slide5() {
-    const [loaded, setLoaded] = useState(false);
-    useEffect(() => {
-      const t = setTimeout(() => setLoaded(true), 80);
-      return () => clearTimeout(t);
-    }, []);
-
-    const stages = [
-      {
-        num: '01',
-        title: 'Baseline Clarity',
-        items: [
-          'Identity & capability mapping',
-          'Student development starting point',
-          'Early strengths & interest signals',
-        ],
-      },
-      {
-        num: '02',
-        title: 'Challenge-Based Studios',
-        items: [
-          'Term-based guided development sessions',
-          'Applied projects & skill-building',
-          'Cross-dimensional integration',
-        ],
-      },
-      {
-        num: '03',
-        title: 'Portfolio & Growth Evidence',
-        items: [
-          'Measurable growth across six dimensions',
-          'Portfolio artifacts that prove capability',
-          'Reflection & advisor checkpoints',
-        ],
-      },
-      {
-        num: '04',
-        title: 'Decision Readiness',
-        items: [
-          'Major alignment analysis',
-          'Career pathway exploration',
-          'University narrative development',
-        ],
-      },
-    ];
-
-    return (
-      <div className="slide slide-5">
-        <div className="slide-bg" />
-        <div className="slide-glow slide-glow--1" />
-        <div className="slide-glow slide-glow--2" />
-        <div className="slide-dots" />
-
-        <div className={`slide-inner ${loaded ? 'loaded' : ''}`}>
-          <span className="slide-label">THE WEGUIDE DEVELOPMENT SYSTEM</span>
-
-          <h1 className="slide-headline">
-            How students build{' '}
-            <span className="slide-gradient">clarity, capability, and decision readiness.</span>
-          </h1>
-
-          <p className="slide-subheader">
-            Four connected components that form a continuous developmental loop — turning lived experiences into
-            documented growth and informed post-graduation direction.
-          </p>
-
-          {/* Pipeline flow */}
-          <div className="s5-pipeline">
-            {/* Dashboard overlay wrapping all stages */}
-            <div className="s5-dashboard-wrap">
-              <div className="s5-dashboard-header">
-                <div className="s5-dashboard-icon">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="3" width="7" height="7" rx="1" />
-                    <rect x="14" y="3" width="7" height="4" rx="1" />
-                    <rect x="14" y="11" width="7" height="10" rx="1" />
-                    <rect x="3" y="14" width="7" height="7" rx="1" />
-                  </svg>
-                </div>
-                <span className="s5-dashboard-title">Intelligent Dashboard</span>
-                <span className="s5-dashboard-desc">Student growth radar &middot; Counselor &amp; parent visibility &middot; Development continuity reports</span>
-              </div>
-
-              {/* Loop return path (SVG behind cards) */}
-              <svg className="s5-loop-svg" viewBox="0 0 1060 40" preserveAspectRatio="none" aria-hidden="true">
-                <path
-                  d="M 1020 0 C 1040 0, 1050 10, 1050 20 C 1050 30, 1040 40, 1020 40 L 40 40 C 20 40, 10 30, 10 20 C 10 10, 20 0, 40 0"
-                  className="s5-loop-path"
-                />
-                <polygon points="34,0 40,8 28,8" className="s5-loop-arrow" />
-              </svg>
-
-              <div className="s5-stages">
-                {stages.map((stage, i) => (
-                  <div className="s5-stage-group" key={stage.num}>
-                    <div className={`s5-card${i === stages.length - 1 ? ' s5-card--last' : ''}`}>
-                      <div className="s5-card-header">
-                        <span className={`s5-card-num${i === stages.length - 1 ? ' s5-card-num--active' : ''}`}>
-                          {stage.num}
-                        </span>
-                        <h4 className={`s5-card-title${i === stages.length - 1 ? ' s5-card-title--active' : ''}`}>
-                          {stage.title}
-                        </h4>
-                      </div>
-                      <ul className="s5-card-list">
-                        {stage.items.map((item) => (
-                          <li key={item}>{item}</li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {i < stages.length - 1 && (
-                      <div className="s5-arrow" aria-hidden="true">
-                        <svg width="20" height="16" viewBox="0 0 20 16" fill="none">
-                          <path
-                            d="M0 8h16M12 2l6 6-6 6"
-                            stroke="rgba(99,102,241,0.35)"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-
-              {/* Loop label */}
-              <span className="s5-loop-label">Continuous Development Loop</span>
-            </div>
-          </div>
-
-          <p className="slide-takeaway">
-            From baseline clarity to confident university decisions — built and evidenced over six years.
-          </p>
-        </div>
-      </div>
-    );
-  },
-
-  function Slide6() {
-    const [loaded, setLoaded] = useState(false);
-    useEffect(() => {
-      const t = setTimeout(() => setLoaded(true), 80);
-      return () => clearTimeout(t);
-    }, []);
-
-    /* Top row: Grades 7→8→9 (left to right) */
-    const topRow = [
-      { grade: 7, title: 'Exploration Begins', phase: 'Exploration',
-        items: ['Strength discovery', 'Exposure to domains', 'Foundational reflection habits'] },
-      { grade: 8, title: 'Identity Awareness', phase: 'Exploration',
-        items: ['Emerging interests mapped', 'Early capability indicators', 'Development portfolio initiated'] },
-      { grade: 9, title: 'Skill Foundation', phase: 'Skill Development',
-        items: ['Applied studios', 'Project-based artifacts', 'Cross-domain integration'] },
-    ];
-
-    /* Bottom row: displayed 12←11←10 (path flows right-to-left) */
-    const bottomRow = [
-      { grade: 12, title: 'Integration', phase: 'Integration',
-        items: ['Capstone reflection', 'Major clarity confirmation', 'Developmental dossier for admissions'] },
-      { grade: 11, title: 'Alignment', phase: 'Integration',
-        items: ['Major exploration & career mapping', 'Decision Lab begins', 'University narrative drafting'] },
-      { grade: 10, title: 'Capability Development', phase: 'Skill Development',
-        items: ['Measurable growth across dimensions', 'Early pathway exposure', 'Advisor-guided reflection'] },
-    ];
-
-    const intensity = { 7: 1, 8: 2, 9: 3, 10: 4, 11: 5, 12: 6 };
-
-    const renderStop = (stop) => (
-      <div className={`s6-stop s6-stop--${intensity[stop.grade]}`}>
-        <div className="s6-stop-head">
-          <span className={`s6-grade s6-grade--${intensity[stop.grade]}`}>{stop.grade}</span>
-          <span className="s6-phase-tag">{stop.phase}</span>
-        </div>
-        <h4 className="s6-stop-title">{stop.title}</h4>
-        <ul className="s6-stop-list">
-          {stop.items.map((item) => <li key={item}>{item}</li>)}
-        </ul>
-      </div>
-    );
-
-    return (
-      <div className="slide slide-6">
-        <div className="slide-bg" />
-        <div className="slide-glow slide-glow--1" />
-        <div className="slide-glow slide-glow--2" />
-        <div className="slide-dots" />
-
-        <div className={`slide-inner ${loaded ? 'loaded' : ''}`}>
-          <span className="slide-label">THE STUDENT JOURNEY</span>
-
-          <h1 className="slide-headline">
-            A structured journey from{' '}
-            <span className="slide-gradient">exploration to decision.</span>
-          </h1>
-
-          <p className="slide-subheader">
-            Six years of intentional development, each grade building on the last, turning uncertainty into clarity,
-            and experience into evidence.
-          </p>
-
-          <div className="s6-journey">
-            {/* Top row: Grade 7 → 8 → 9 */}
-            <div className="s6-row">
-              {topRow.map((stop, i) => (
-                <div className="s6-stop-group" key={stop.grade}>
-                  {renderStop(stop)}
-                  {i < topRow.length - 1 && (
-                    <div className="s6-harrow" aria-hidden="true">
-                      <svg width="20" height="16" viewBox="0 0 20 16" fill="none">
-                        <path d="M0 8h16M12 2l6 6-6 6" stroke="rgba(99,102,241,0.3)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            {/* Right-side curve connector */}
-            <div className="s6-curve" aria-hidden="true">
-              <svg className="s6-curve-svg" viewBox="0 0 60 48" fill="none">
-                <path d="M30 0 C55 0, 55 48, 30 48" stroke="rgba(99,102,241,0.2)" strokeWidth="1.5" strokeDasharray="5 3" strokeLinecap="round" />
-                <polygon points="30,48 26,41 34,41" fill="rgba(99,102,241,0.25)" />
-              </svg>
-            </div>
-
-            {/* Bottom row: Grade 12 ← 11 ← 10 */}
-            <div className="s6-row">
-              {bottomRow.map((stop, i) => (
-                <div className="s6-stop-group" key={stop.grade}>
-                  {renderStop(stop)}
-                  {i < bottomRow.length - 1 && (
-                    <div className="s6-harrow" aria-hidden="true">
-                      <svg width="20" height="16" viewBox="0 0 20 16" fill="none">
-                        <path d="M20 8H4M8 14L2 8l6-6" stroke="rgba(99,102,241,0.3)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <p className="slide-takeaway">
-            Students do not &ldquo;suddenly decide&rdquo; in Grade 11 — they build toward clarity through repeated cycles of action, reflection, and evidence.
-          </p>
-        </div>
-      </div>
-    );
-  },
-
-  function Slide7() {
-    const [loaded, setLoaded] = useState(false);
-    useEffect(() => {
-      const t = setTimeout(() => setLoaded(true), 80);
-      return () => clearTimeout(t);
-    }, []);
-
-    return (
-      <div className="slide slide-7">
-        <div className="slide-bg" />
-        <div className="slide-glow slide-glow--1" />
-        <div className="slide-glow slide-glow--2" />
-        <div className="slide-dots" />
-
-        <div className={`slide-inner ${loaded ? 'loaded' : ''}`}>
-          <span className="slide-label">THE STUDIO MODEL</span>
-
-          <h1 className="slide-headline">
-            Every studio is a challenge,{' '}
-            <span className="slide-gradient">not a lecture.</span>
-          </h1>
-
-          <p className="slide-subheader">
-            Each WeGuide Studio is built around a real-world challenge that
-            requires students to think, create, decide, and produce tangible
-            evidence of growth.
-          </p>
-
-          {/* Three pillars */}
-          <div className="s7-columns">
-            {/* Column 1 — The Challenge */}
-            <div className="s7-col">
-              <div className="s7-col-header">
-                <span className="s7-col-num">01</span>
-                <div className="s7-col-icon">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-                  </svg>
-                </div>
-              </div>
-              <h3 className="s7-col-title">The Challenge</h3>
-              <p className="s7-col-desc">Every studio begins with a problem to solve:</p>
-              <ul className="s7-col-list">
-                <li>Design a system that improves classroom energy efficiency</li>
-                <li>Build a performance optimization plan</li>
-                <li>Create a persuasive proposal for a social initiative</li>
-                <li>Simulate a career decision under constraints</li>
-              </ul>
-              <span className="s7-col-signal">Active, not passive.</span>
-            </div>
-
-            {/* Column 2 — The Artifact */}
-            <div className="s7-col s7-col--mid">
-              <div className="s7-col-header">
-                <span className="s7-col-num s7-col-num--mid">02</span>
-                <div className="s7-col-icon s7-col-icon--mid">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                    <polyline points="14 2 14 8 20 8" />
-                    <line x1="16" y1="13" x2="8" y2="13" />
-                    <line x1="16" y1="17" x2="8" y2="17" />
-                  </svg>
-                </div>
-              </div>
-              <h3 className="s7-col-title">The Artifact</h3>
-              <p className="s7-col-desc">Each studio produces a tangible output:</p>
-              <ul className="s7-col-list">
-                <li>Project brief or prototype</li>
-                <li>Decision matrix</li>
-                <li>Performance map</li>
-                <li>Strategy presentation</li>
-                <li>Reflective analysis</li>
-              </ul>
-              <span className="s7-col-signal">Measurable, not abstract.</span>
-            </div>
-
-            {/* Column 3 — The Developmental Signal */}
-            <div className="s7-col s7-col--active">
-              <div className="s7-col-header">
-                <span className="s7-col-num s7-col-num--active">03</span>
-                <div className="s7-col-icon s7-col-icon--active">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                    <polyline points="22 4 12 14.01 9 11.01" />
-                  </svg>
-                </div>
-              </div>
-              <h3 className="s7-col-title s7-col-title--active">The Developmental Signal</h3>
-              <p className="s7-col-desc">Studios generate structured evidence of:</p>
-              <ul className="s7-col-list">
-                <li>Analytical reasoning</li>
-                <li>Systems thinking</li>
-                <li>Collaboration</li>
-                <li>Decision clarity</li>
-                <li>Adaptive response</li>
-              </ul>
-              <span className="s7-col-signal s7-col-signal--active">Assessable, not vague.</span>
-            </div>
-          </div>
-
-          <p className="slide-takeaway">
-            Studios transform development from abstract discussion into observable, documentable student growth.
-          </p>
-        </div>
-      </div>
-    );
-  },
-
-  function Slide8() {
-    const [loaded, setLoaded] = useState(false);
-    const videoRef = useRef(null);
-
-    useEffect(() => {
-      const t = setTimeout(() => setLoaded(true), 80);
-      return () => clearTimeout(t);
-    }, []);
-
-    /* Pause video when navigating away, play when visible */
-    useEffect(() => {
-      const v = videoRef.current;
-      if (!v) return;
-      v.play().catch(() => {});
-      return () => { v.pause(); };
-    }, []);
-
-    return (
-      <div className="slide slide-8">
-        <div className="slide-bg" />
-        <div className="slide-glow slide-glow--1" />
-        <div className="slide-glow slide-glow--2" />
-        <div className="slide-dots" />
-
-        <div className={`slide-inner slide-inner--split ${loaded ? 'loaded' : ''}`}>
-          {/* Left — Video */}
-          <div className="slide-split-left s8-video-side">
-            <div className="s8-video-frame">
-              <video
-                ref={videoRef}
-                className="s8-video"
-                src={studiosVideo}
-                muted
-                loop
-                playsInline
-                controls
-              />
-            </div>
-            <span className="s8-video-caption">
-              Live studio session: student copilot interface
-            </span>
-          </div>
-
-          {/* Right — Context */}
-          <div className="slide-split-right s8-context">
-            <span className="slide-label">STUDIO IN ACTION</span>
-
-            <h1 className="slide-headline">
-              In-person development, supported by{' '}
-              <span className="slide-gradient">real-time guidance and evidence capture.</span>
-            </h1>
-
-            <p className="slide-subheader">
-              Studios are conducted face-to-face. An AI-powered online copilot accompanies every session,
-              helping students stay intentional, capturing key learning moments, and translating participation into structured growth evidence.
-            </p>
-
-            {/* Two callout cards */}
-            <div className="s8-callouts">
-              <div className="s8-callout">
-                <div className="s8-callout-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                    <circle cx="9" cy="7" r="4" />
-                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="s8-callout-title">Held In Person</h4>
-                  <p className="s8-callout-desc">
-                    Facilitated group sessions with real-world challenges,
-                    collaborative problem-solving, and guided reflection.
-                  </p>
-                </div>
-              </div>
-
-              <div className="s8-callout s8-callout--active">
-                <div className="s8-callout-icon s8-callout-icon--active">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-                    <line x1="8" y1="21" x2="16" y2="21" />
-                    <line x1="12" y1="17" x2="12" y2="21" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="s8-callout-title s8-callout-title--active">Online Copilot</h4>
-                  <p className="s8-callout-desc">
-                    Helps students reflect, surfaces developmental criteria, and extracts actionable signal —
-                    transforming each session into reliable, measurable evidence over time.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  },
-
-  function Slide9() {
-    const [loaded, setLoaded] = useState(false);
-    useEffect(() => {
-      const t = setTimeout(() => setLoaded(true), 80);
-      return () => clearTimeout(t);
-    }, []);
-
-    return (
-      <div className="slide slide-9">
-        <div className="slide-bg" />
-        <div className="slide-glow slide-glow--1" />
-        <div className="slide-glow slide-glow--2" />
-        <div className="slide-dots" />
-
-        <div className={`slide-inner ${loaded ? 'loaded' : ''}`}>
-          <span className="slide-label">IMPLEMENTATION MODEL</span>
-
-          <h1 className="slide-headline">
-            Designed to Support &mdash; Not Disrupt &mdash;{' '}
-            <span className="slide-gradient">School Operations.</span>
-          </h1>
-
-          <p className="slide-subheader">
-            WeGuide integrates within existing structures so students receive consistent development
-            without adding operational burden or timetable disruption.
-          </p>
-
-          {/* Three implementation pillars */}
-          <div className="s9-pillars">
-            {/* Pillar 1 — Term-Based Delivery */}
-            <div className="s9-pillar">
-              <div className="s9-pillar-header">
-                <span className="s9-pillar-num">01</span>
-                <div className="s9-pillar-icon">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                    <line x1="16" y1="2" x2="16" y2="6" />
-                    <line x1="8" y1="2" x2="8" y2="6" />
-                    <line x1="3" y1="10" x2="21" y2="10" />
-                  </svg>
-                </div>
-              </div>
-              <h3 className="s9-pillar-title">Term-Based Delivery</h3>
-              <ul className="s9-pillar-list">
-                <li>Schools select which terms to implement</li>
-                <li>Workshops occur within defined blocks</li>
-                <li>Scheduling determined collaboratively</li>
-                <li>No permanent timetable restructuring required</li>
-              </ul>
-              <span className="s9-pillar-message">You stay in control.</span>
-            </div>
-
-            {/* Pillar 2 — Amplifies Counseling */}
-            <div className="s9-pillar s9-pillar--mid">
-              <div className="s9-pillar-header">
-                <span className="s9-pillar-num s9-pillar-num--mid">02</span>
-                <div className="s9-pillar-icon s9-pillar-icon--mid">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                    <circle cx="9" cy="7" r="4" />
-                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                  </svg>
-                </div>
-              </div>
-              <h3 className="s9-pillar-title">Amplifies Counseling, Does Not Replace It</h3>
-              <ul className="s9-pillar-list">
-                <li>Provides longitudinal student development evidence</li>
-                <li>Surfaces early clarity and growth signals</li>
-                <li>Strengthens Grade 11&ndash;12 decision conversations</li>
-                <li>Improves university narrative building</li>
-              </ul>
-              <span className="s9-pillar-message s9-pillar-message--mid">We empower your counselors.</span>
-            </div>
-
-            {/* Pillar 3 — Institutionally Governed */}
-            <div className="s9-pillar s9-pillar--active">
-              <div className="s9-pillar-header">
-                <span className="s9-pillar-num s9-pillar-num--active">03</span>
-                <div className="s9-pillar-icon s9-pillar-icon--active">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                  </svg>
-                </div>
-              </div>
-              <h3 className="s9-pillar-title s9-pillar-title--active">Institutionally Governed &amp; Secure</h3>
-              <ul className="s9-pillar-list">
-                <li>School-defined access levels</li>
-                <li>Secure data handling</li>
-                <li>Clear reporting protocols</li>
-                <li>Transparent growth metrics</li>
-              </ul>
-              <span className="s9-pillar-message s9-pillar-message--active">Governance remains intact.</span>
-            </div>
-          </div>
-
-          <p className="slide-takeaway">
-            Structured delivery. Institutional control. Student growth made visible.
-          </p>
-        </div>
-      </div>
-    );
-  },
-
-  function Slide10() {
-    const [loaded, setLoaded] = useState(false);
-    useEffect(() => {
-      const t = setTimeout(() => setLoaded(true), 80);
-      return () => clearTimeout(t);
-    }, []);
-
-    return (
-      <div className="slide slide-10">
-        <div className="slide-bg" />
-        <div className="slide-glow slide-glow--1" />
-        <div className="slide-glow slide-glow--2" />
-        <div className="slide-dots" />
-
-        <div className={`slide-inner ${loaded ? 'loaded' : ''}`}>
-          <span className="slide-label">DEVELOPMENTAL INTELLIGENCE</span>
-
-          <h1 className="slide-headline">
-            From experiences to{' '}
-            <span className="slide-gradient">evidence-backed student success.</span>
-          </h1>
-
-          <p className="slide-subheader">
-            WeGuide converts multi-year experiential learning into structured, reliability-adjusted insight —
-            so university and career conversations are guided by evidence, not speculation.
-          </p>
-
-          {/* Three intelligence tiers */}
-          <div className="s10-tiers">
-            {/* Tier 1 — Observable Evidence */}
-            <div className="s10-tier">
-              <div className="s10-tier-header">
-                <span className="s10-tier-num">01</span>
-                <div className="s10-tier-icon">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10" />
-                    <polyline points="12 6 12 12 16 14" />
-                  </svg>
-                </div>
-              </div>
-              <h3 className="s10-tier-title">Observable Evidence</h3>
-              <p className="s10-tier-desc">
-                Real-world challenges produce measurable demonstrations of:
-              </p>
-              <div className="s10-tier-tags">
-                <span className="s10-tag">Creative Expression</span>
-                <span className="s10-tag">Systems Thinking</span>
-                <span className="s10-tag">Social Collaboration</span>
-                <span className="s10-tag">Digital &amp; AI Fluency</span>
-                <span className="s10-tag">Identity Development</span>
-                <span className="s10-tag">Wellbeing</span>
-              </div>
-              <span className="s10-tier-signal">
-                Scored using structured performance anchors.
-              </span>
-              <span className="s10-tier-message">Students can see what they are building.</span>
-            </div>
-
-            {/* Tier 2 — Longitudinal Modeling */}
-            <div className="s10-tier s10-tier--mid">
-              <div className="s10-tier-header">
-                <span className="s10-tier-num s10-tier-num--mid">02</span>
-                <div className="s10-tier-icon s10-tier-icon--mid">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-                  </svg>
-                </div>
-              </div>
-              <h3 className="s10-tier-title">Longitudinal Modeling</h3>
-              <p className="s10-tier-desc">
-                Evidence is reliability-weighted and modeled across contexts to identify:
-              </p>
-              <ul className="s10-tier-list">
-                <li>Growth velocity</li>
-                <li>Stability patterns</li>
-                <li>Identity&ndash;behavior coherence</li>
-                <li>Interest&ndash;performance alignment</li>
-              </ul>
-              <span className="s10-tier-message s10-tier-message--mid">Counseling moves from anecdotes to patterns.</span>
-            </div>
-
-            {/* Tier 3 — Grade 12 Synthesis */}
-            <div className="s10-tier s10-tier--active">
-              <div className="s10-tier-header">
-                <span className="s10-tier-num s10-tier-num--active">03</span>
-                <div className="s10-tier-icon s10-tier-icon--active">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                    <polyline points="22 4 12 14.01 9 11.01" />
-                  </svg>
-                </div>
-              </div>
-              <h3 className="s10-tier-title s10-tier-title--active">Grade 12 Synthesis</h3>
-              <p className="s10-tier-desc">Students graduate with:</p>
-              <ul className="s10-tier-list">
-                <li>A capability signature profile</li>
-                <li>Demonstrated adaptive decision-making</li>
-                <li>Identity coherence evidence</li>
-                <li>Learning autonomy indicators</li>
-              </ul>
-              <div className="s10-tier-negatives">
-                <span>No ranking.</span>
-                <span>No labeling.</span>
-                <span>No algorithmic career assignment.</span>
-              </div>
-              <span className="s10-tier-message s10-tier-message--active">Evidence-led, student-owned, institutionally governed.</span>
-            </div>
-          </div>
-
-          {/* Ethical safeguards footer */}
-          <div className="s10-safeguards">
-            <div className="s10-safeguards-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              </svg>
-            </div>
-            <span className="s10-safeguards-title">Ethical Safeguards</span>
-            <div className="s10-safeguards-items">
-              <span>No deterministic career labeling</span>
-              <span className="s10-safeguards-sep">&middot;</span>
-              <span>No peer ranking</span>
-              <span className="s10-safeguards-sep">&middot;</span>
-              <span>Evidence required for every interpretation</span>
-              <span className="s10-safeguards-sep">&middot;</span>
-              <span>Transparent, traceable metrics</span>
-              <span className="s10-safeguards-sep">&middot;</span>
-              <span>Institutional data governance</span>
-            </div>
-          </div>
-
-          <p className="slide-takeaway">
-            Students gain clarity earlier — and schools gain a defensible basis for guidance.
-          </p>
-        </div>
-      </div>
-    );
-  },
-
-  function Slide11() {
-    const [loaded, setLoaded] = useState(false);
-    const videoRef = useRef(null);
-
-    useEffect(() => {
-      const t = setTimeout(() => setLoaded(true), 80);
-      return () => clearTimeout(t);
-    }, []);
-
-    useEffect(() => {
-      const v = videoRef.current;
-      if (!v) return;
-      v.play().catch(() => {});
-      return () => { v.pause(); };
-    }, []);
-
-    return (
-      <div className="slide slide-11">
-        <div className="slide-bg" />
-        <div className="slide-glow slide-glow--1" />
-        <div className="slide-glow slide-glow--2" />
-        <div className="slide-dots" />
-
-        <div className={`slide-inner ${loaded ? 'loaded' : ''}`}>
-          <span className="slide-label">INSTITUTIONAL DASHBOARD</span>
-
-          <h1 className="slide-headline">
-            Visibility into student growth for{' '}
-            <span className="slide-gradient">leadership and counseling.</span>
-          </h1>
-
-          {/* Full-width video */}
-          <div className="s11-video-wrap">
-            <div className="s11-video-frame">
-              <video
-                ref={videoRef}
-                className="s11-video"
-                src={platformVideo}
-                muted
-                loop
-                playsInline
-                controls
-              />
-            </div>
-            <span className="s11-video-caption">
-              WeGuide institutional dashboard &mdash; leadership &amp; counselor view
-            </span>
-          </div>
-        </div>
-      </div>
-    );
-  },
-
-  function Slide12() {
-    const [loaded, setLoaded] = useState(false);
-    useEffect(() => {
-      const t = setTimeout(() => setLoaded(true), 80);
-      return () => clearTimeout(t);
-    }, []);
-
-    return (
-      <div className="slide slide-12">
-        <div className="slide-bg" />
-        <div className="slide-glow slide-glow--1" />
-        <div className="slide-glow slide-glow--2" />
-        <div className="slide-dots" />
-
-        <div className={`slide-inner ${loaded ? 'loaded' : ''}`}>
-          <span className="slide-label">PILOT PROGRAM</span>
-
-          <h1 className="slide-headline">
-            <span className="slide-gradient">An 8-week pilot to prove WeGuide's impact in your school.{' '}</span> 
-            No long-term commitment required.
-          </h1>
-
-          <p className="slide-subheader">
-            A controlled starting point to evaluate WeGuide in one grade level, with visible student outcomes and a clear
-            decision pathway for longitudinal implementation.
-          </p>
-
-          {/* Two-column layout */}
-          <div className="s12-columns">
-            {/* Left — Pilot Scope */}
-            <div className="s12-col">
-              <h3 className="s12-col-title">Pilot Scope</h3>
-
-              <div className="s12-detail-grid">
-                <div className="s12-detail">
-                  <span className="s12-detail-label">Grade Level</span>
-                  <span className="s12-detail-value">Grade 7 cohort</span>
-                </div>
-                <div className="s12-detail">
-                  <span className="s12-detail-label">Duration</span>
-                  <span className="s12-detail-value">8 weeks (one academic term)</span>
-                </div>
-              </div>
-
-              <div className="s12-section">
-                <span className="s12-section-label">Delivery</span>
-                <ul className="s12-list">
-                  <li>5 studios per term</li>
-                  <li>3 hours per studio</li>
-                  <li>Delivered live on campus</li>
-                  <li>Scheduled during the week or Saturdays (school-selected)</li>
-                </ul>
-              </div>
-
-              <span className="s12-col-message">You control timing.</span>
-            </div>
-
-            {/* Right — What the School Receives */}
-            <div className="s12-col s12-col--active">
-              <h3 className="s12-col-title s12-col-title--active">What the School Receives</h3>
-
-              <div className="s12-section">
-                <span className="s12-section-label">Student Outcomes</span>
-                <ul className="s12-list">
-                  <li>5 challenge-based studios</li>
-                  <li>Artifacts that demonstrate capability</li>
-                  <li>Structured reflection habits</li>
-                  <li>Early clarity and growth signals</li>
-                </ul>
-              </div>
-
-              <div className="s12-section">
-                <span className="s12-section-label">Institutional Evidence</span>
-                <ul className="s12-list">
-                  <li>Full access to the WeGuide platform</li>
-                  <li>Student-level development dashboards</li>
-                  <li>Cohort-level analytics</li>
-                  <li>End-of-term institutional report</li>
-                </ul>
-              </div>
-
-              <span className="s12-col-message s12-col-message--active">You see measurable impact.</span>
-            </div>
-          </div>
-
-          {/* Evaluation footer */}
-          <div className="s12-eval">
-            <div className="s12-eval-header">
-              <div className="s12-eval-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                  <polyline points="22 4 12 14.01 9 11.01" />
+          {/* Triangle of structural gaps */}
+          <div className="sg-triangle">
+            {/* SVG connector lines */}
+            <svg className="sg-lines" viewBox="0 0 800 380" preserveAspectRatio="xMidYMid meet">
+              {/* Top to bottom-left */}
+              <line x1="400" y1="95" x2="155" y2="270" stroke="rgba(99,102,241,0.15)" strokeWidth="1.5" strokeDasharray="6 4" />
+              {/* Top to bottom-right */}
+              <line x1="400" y1="95" x2="645" y2="270" stroke="rgba(99,102,241,0.15)" strokeWidth="1.5" strokeDasharray="6 4" />
+              {/* Bottom-left to bottom-right */}
+              <line x1="195" y1="290" x2="605" y2="290" stroke="rgba(99,102,241,0.15)" strokeWidth="1.5" strokeDasharray="6 4" />
+            </svg>
+
+            {/* Top node — Capacity Gap */}
+            <div className="sg-node sg-node--top">
+              <div className="sg-node-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />
                 </svg>
               </div>
-              <span className="s12-eval-title">Evaluation &amp; Next Step</span>
-              <span className="s12-eval-desc">At the end of the 8-week pilot:</span>
+              <h3 className="sg-node-title">Capacity Gap</h3>
+              <span className="sg-node-subtitle">The Guidance Bottleneck</span>
+              <ul className="sg-node-list">
+                <li>Counselor ratios often 1:400 to 1:800+</li>
+                <li>Heavy administrative workload</li>
+                <li>Application-season spikes</li>
+              </ul>
+              <div className="sg-node-outcome">
+                <span className="sg-gap-arrow">&rarr;</span>
+                Clarity comes under deadline pressure.
+              </div>
+
+              {/* Hover overlay */}
+              <div className="sg-overlay">
+                <span className="sg-overlay-label">Effect</span>
+                <ul className="sg-overlay-list">
+                  <li>Late-stage conversations</li>
+                  <li>Reactive support</li>
+                  <li>Limited individual depth</li>
+                </ul>
+              </div>
             </div>
-            <div className="s12-eval-items">
-              <span>Leadership review meeting</span>
-              <span className="s12-eval-sep">&middot;</span>
-              <span>Student outcome &amp; analytics presentation</span>
-              <span className="s12-eval-sep">&middot;</span>
-              <span>Counselor feedback discussion</span>
-              <span className="s12-eval-sep">&middot;</span>
-              <span>Decision on longitudinal implementation</span>
+
+            {/* Bottom-left node — Continuity Gap */}
+            <div className="sg-node sg-node--bl">
+              <div className="sg-node-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                </svg>
+              </div>
+              <h3 className="sg-node-title">Continuity Gap</h3>
+              <span className="sg-node-subtitle">No Longitudinal Development Spine</span>
+              <ul className="sg-node-list">
+                <li>Academic silos (subject-by-subject)</li>
+                <li>Year-to-year fragmentation</li>
+                <li>No structured cross-grade progression</li>
+              </ul>
+              <div className="sg-node-outcome">
+                <span className="sg-gap-arrow">&rarr;</span>
+                Growth does not systematically build.
+              </div>
+
+              {/* Hover overlay */}
+              <div className="sg-overlay">
+                <span className="sg-overlay-label">Effect</span>
+                <ul className="sg-overlay-list">
+                  <li>Exposure without integration</li>
+                  <li>Reflection without compounding</li>
+                  <li>Activities without evidence accumulation</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Bottom-right node — Evidence Gap */}
+            <div className="sg-node sg-node--br">
+              <div className="sg-node-icon sg-node-icon--active">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /><polyline points="10 9 9 9 8 9" />
+                </svg>
+              </div>
+              <h3 className="sg-node-title">Evidence Gap</h3>
+              <span className="sg-node-subtitle">No Structured Signal of Identity &amp; Skills</span>
+              <ul className="sg-node-list">
+                <li>Grades are measured precisely</li>
+                <li>Mindset, direction, and skills are not</li>
+              </ul>
+              <div className="sg-node-outcome">
+                <span className="sg-gap-arrow">&rarr;</span>
+                Uncertainty, identity confusion, parent-driven choices.
+              </div>
+
+              {/* Hover overlay */}
+              <div className="sg-overlay">
+                <span className="sg-overlay-label">Effect</span>
+                <ul className="sg-overlay-list">
+                  <li>Decisions rely on interviews &amp; impressions</li>
+                  <li>Parents rely on opinion</li>
+                  <li>Students lack documented growth trajectory</li>
+                </ul>
+              </div>
             </div>
           </div>
 
           <p className="slide-takeaway">
-            Experience the student journey. Review the evidence. Decide confidently.
+            Schools are optimizing academics well. But identity, skills, and direction lack structured infrastructure.
           </p>
         </div>
       </div>
     );
   },
 
-  function Slide13() {
+  function SlideGapPersonas() {
     const [loaded, setLoaded] = useState(false);
     useEffect(() => {
       const t = setTimeout(() => setLoaded(true), 80);
       return () => clearTimeout(t);
     }, []);
 
-    return (
-      <div className="slide slide-13">
-        <div className="slide-bg" />
-        <div className="slide-glow slide-glow--1" />
-        <div className="slide-glow slide-glow--2" />
-        <div className="slide-dots" />
-
-        <div className={`slide-inner ${loaded ? 'loaded' : ''}`}>
-          <span className="slide-label">LONG-TERM PARTNERSHIP</span>
-
-          <h1 className="slide-headline">
-            A partnership model that sustains{' '}
-            <span className="slide-gradient">student development over time.</span>
-          </h1>
-
-          {/* Three assurance columns */}
-          <div className="s13-assurances">
-            {/* 1 — Implementation Support */}
-            <div className="s13-card">
-              <div className="s13-card-header">
-                <span className="s13-card-num">01</span>
-                <div className="s13-card-icon">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                    <circle cx="9" cy="7" r="4" />
-                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                  </svg>
-                </div>
-              </div>
-              <h3 className="s13-card-title">Dedicated Implementation Support</h3>
-              <ul className="s13-card-list">
-                <li>Scheduling coordination</li>
-                <li>Facilitator alignment</li>
-                <li>Structured onboarding</li>
-              </ul>
-            </div>
-
-            {/* 2 — Reporting & Review */}
-            <div className="s13-card s13-card--mid">
-              <div className="s13-card-header">
-                <span className="s13-card-num s13-card-num--mid">02</span>
-                <div className="s13-card-icon s13-card-icon--mid">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                    <polyline points="14 2 14 8 20 8" />
-                    <line x1="16" y1="13" x2="8" y2="13" />
-                    <line x1="16" y1="17" x2="8" y2="17" />
-                  </svg>
-                </div>
-              </div>
-              <h3 className="s13-card-title">Ongoing Reporting &amp; Review</h3>
-              <ul className="s13-card-list">
-                <li>Term reports</li>
-                <li>Counselor alignment sessions</li>
-                <li>Leadership check-ins</li>
-              </ul>
-            </div>
-
-            {/* 3 — Continuous Refinement */}
-            <div className="s13-card s13-card--active">
-              <div className="s13-card-header">
-                <span className="s13-card-num s13-card-num--active">03</span>
-                <div className="s13-card-icon s13-card-icon--active">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
-                    <polyline points="17 6 23 6 23 12" />
-                  </svg>
-                </div>
-              </div>
-              <h3 className="s13-card-title s13-card-title--active">Continuous Refinement</h3>
-              <ul className="s13-card-list">
-                <li>Workshop calibration</li>
-                <li>Feedback integration</li>
-                <li>Longitudinal development planning</li>
-              </ul>
-            </div>
-          </div>
-
-          <p className="slide-takeaway">
-            Consistency is the point: student growth becomes cumulative, not episodic.
-          </p>
-        </div>
-      </div>
-    );
-  },
-
-  function Slide14() {
-    const [loaded, setLoaded] = useState(false);
-    useEffect(() => {
-      const t = setTimeout(() => setLoaded(true), 80);
-      return () => clearTimeout(t);
-    }, []);
-
-    const steps = [
+    const gaps = [
       {
-        num: '01',
-        title: 'Identify Grade 7 pilot cohort',
+        id: 'capacity',
+        label: 'Capacity Gap',
         icon: (
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-            <circle cx="9" cy="7" r="4" />
-            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />
           </svg>
         ),
       },
       {
-        num: '02',
-        title: 'Confirm preferred term and schedule',
+        id: 'continuity',
+        label: 'Continuity Gap',
         icon: (
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-            <line x1="16" y1="2" x2="16" y2="6" />
-            <line x1="8" y1="2" x2="8" y2="6" />
-            <line x1="3" y1="10" x2="21" y2="10" />
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
           </svg>
         ),
       },
       {
-        num: '03',
-        title: 'Define pilot calendar',
+        id: 'evidence',
+        label: 'Evidence Gap',
         icon: (
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-            <polyline points="14 2 14 8 20 8" />
-            <line x1="16" y1="13" x2="8" y2="13" />
-            <line x1="16" y1="17" x2="8" y2="17" />
-          </svg>
-        ),
-      },
-      {
-        num: '04',
-        title: 'Launch 8-week evaluation term',
-        icon: (
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-            <polyline points="22 4 12 14.01 9 11.01" />
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" />
           </svg>
         ),
       },
     ];
 
+    const personas = [
+      {
+        name: 'The High-Performing Drifter',
+        bornFrom: ['continuity', 'evidence'],
+        bornLabel: 'Continuity + Evidence Gap',
+        points: [
+          'Strong grades.',
+          'No longitudinal identity development.',
+          'No structured signal of strengths.',
+        ],
+        outcome: 'Performs well, lacks direction.',
+        img: imgDrifter,
+      },
+      {
+        name: 'The Silent Slipper',
+        bornFrom: ['capacity', 'continuity'],
+        bornLabel: 'Capacity + Continuity Gap',
+        points: [
+          'Limited individual attention.',
+          'Fragmented engagement.',
+          'No early activation of potential.',
+        ],
+        outcome: 'Gradual disengagement, unnoticed.',
+        img: imgSlipper,
+      },
+      {
+        name: 'The Borrowed Dreamer',
+        bornFrom: ['evidence'],
+        bornLabel: 'Evidence Gap',
+        points: [
+          'No documented growth signal.',
+          'No self-awareness infrastructure.',
+          'Parents fill the vacuum.',
+        ],
+        outcome: 'Ambition outsourced.',
+        img: imgDreamer,
+      },
+      {
+        name: 'The October Panicker',
+        bornFrom: ['capacity', 'evidence'],
+        bornLabel: 'Capacity + Evidence Gap',
+        points: [
+          'Late-stage conversations.',
+          'No accumulated portfolio.',
+          'Deadlines approaching.',
+        ],
+        outcome: 'Decisions under pressure.',
+        img: imgPanicker,
+      },
+    ];
+
     return (
-      <div className="slide slide-14">
+      <div className="slide slide-gap-personas">
         <div className="slide-bg" />
         <div className="slide-glow slide-glow--1" />
         <div className="slide-glow slide-glow--2" />
         <div className="slide-dots" />
 
-        <div className={`slide-inner s14-inner ${loaded ? 'loaded' : ''}`}>
-          <span className="slide-label">PROPOSED NEXT STEP</span>
+        {/* Sticky header */}
+        <div className={`sgp-sticky ${loaded ? 'loaded' : ''}`}>
+          <span className="slide-label">CAUSE AND EFFECT</span>
 
-          <h1 className="slide-headline s14-headline">
-            <span className="slide-gradient">Proposed Next Step</span>
+          <h1 className="slide-headline">
+            When structure fails,{' '}
+            <span className="slide-gradient">patterns emerge.</span>
           </h1>
 
-          {/* Four steps */}
-          <div className="s14-steps">
-            {steps.map((step, i) => (
-              <div className="s14-step-group" key={step.num}>
-                <div className={`s14-step${i === steps.length - 1 ? ' s14-step--final' : ''}`}>
-                  <div className="s14-step-header">
-                    <span className={`s14-step-num${i === steps.length - 1 ? ' s14-step-num--final' : ''}`}>
-                      {step.num}
-                    </span>
-                    <div className={`s14-step-icon${i === steps.length - 1 ? ' s14-step-icon--final' : ''}`}>
-                      {step.icon}
-                    </div>
-                  </div>
-                  <h3 className={`s14-step-title${i === steps.length - 1 ? ' s14-step-title--final' : ''}`}>
-                    {step.title}
-                  </h3>
-                </div>
-
-                {i < steps.length - 1 && (
-                  <div className="s14-connector" aria-hidden="true">
-                    <svg width="20" height="16" viewBox="0 0 20 16" fill="none">
-                      <path
-                        d="M0 8h16M12 2l6 6-6 6"
-                        stroke="rgba(99,102,241,0.3)"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                )}
+          <div className="sgp-gaps">
+            {gaps.map((g) => (
+              <div key={g.id} className="sgp-gap">
+                <div className="sgp-gap-icon">{g.icon}</div>
+                <span className="sgp-gap-label">{g.label}</span>
               </div>
             ))}
           </div>
 
-          <p className="s14-closing">
-            This is thoughtful. This is structured. This is safe.
+          <div className="sgp-connector">
+            <span className="sgp-connector-line" />
+            <span className="sgp-connector-text">These constraints shape student behavior.</span>
+            <svg className="sgp-connector-arrow" width="14" height="10" viewBox="0 0 14 10" fill="none">
+              <path d="M1 1l6 8 6-8" stroke="rgba(99,102,241,0.5)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </div>
+        </div>
+
+        {/* Scrolling persona cards */}
+        <div className={`sgp-scroll ${loaded ? 'loaded' : ''}`}>
+          {personas.map((p, idx) => (
+            <div key={p.name} className="sgp-card">
+              <div className="sgp-card-img">
+                <img src={p.img} alt={p.name} />
+              </div>
+              <div className="sgp-card-body">
+                <span className="sgp-card-num">{'0' + (idx + 1)}</span>
+                <h3 className="sgp-card-name">{p.name}</h3>
+                <span className="sgp-card-born">{p.bornLabel}</span>
+                <ul className="sgp-card-list">
+                  {p.points.map((pt, i) => (
+                    <li key={i}>{pt}</li>
+                  ))}
+                </ul>
+                <div className="sgp-card-outcome">
+                  <span className="sgp-card-arrow">&rarr;</span>
+                  {p.outcome}
+                </div>
+              </div>
+            </div>
+          ))}
+
+          <p className="slide-takeaway sgp-footer">
+            The personas are not personality types. They are structural outcomes.
           </p>
+        </div>
+      </div>
+    );
+  },
+
+  function SlideSuperpower() {
+    const [loaded, setLoaded] = useState(false);
+    useEffect(() => {
+      const t = setTimeout(() => setLoaded(true), 80);
+      return () => clearTimeout(t);
+    }, []);
+
+    /* ── LEFT SIDE: 600 dots overwhelmed around 1 counselor ── */
+    const leftDots = [];
+    const lcx = 200, lcy = 200;
+    let lid = 0;
+    const leftRings = [
+      { r: 36, count: 10 }, { r: 52, count: 16 }, { r: 68, count: 22 },
+      { r: 84, count: 28 }, { r: 100, count: 34 }, { r: 116, count: 40 },
+      { r: 130, count: 46 }, { r: 144, count: 52 }, { r: 156, count: 56 },
+      { r: 168, count: 60 }, { r: 178, count: 64 }, { r: 188, count: 72 },
+      { r: 196, count: 100 },
+    ];
+    leftRings.forEach((ring) => {
+      for (let i = 0; i < ring.count; i++) {
+        const angle = (i / ring.count) * Math.PI * 2 + (ring.r * 0.1);
+        const jR = (Math.random() - 0.5) * 5;
+        const jA = (Math.random() - 0.5) * 0.08;
+        const x = lcx + (ring.r + jR) * Math.cos(angle + jA);
+        const y = lcy + (ring.r + jR) * Math.sin(angle + jA);
+        leftDots.push({ id: lid++, x, y, delay: Math.random() * 1.5 });
+      }
+    });
+
+    /* ── RIGHT SIDE: Platform slideshow state ── */
+    const platformImages = [imgPlatform1, imgPlatform2, imgPlatform3, imgPlatform4];
+    const [activeImg, setActiveImg] = useState(0);
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setActiveImg((prev) => (prev + 1) % platformImages.length);
+      }, 5000);
+      return () => clearInterval(interval);
+    }, []);
+
+    return (
+      <div className="slide slide-superpower">
+        <div className="slide-bg" />
+        <div className="slide-glow slide-glow--1" />
+        <div className="slide-glow slide-glow--2" />
+        <div className="slide-dots" />
+
+        <div className={`slide-inner slide-inner--center ${loaded ? 'loaded' : ''}`}>
+          <h1 className="slide-headline slide-headline--hero">
+            <span className="slide-gradient">What If We Gave Schools Superpowers?</span>
+          </h1>
+
+          <div className="ssp-split">
+            {/* ── LEFT: Today ── */}
+            <div className="ssp-panel ssp-panel--before">
+              <span className="ssp-panel-label ssp-label--before">Today</span>
+              <svg className="ssp-svg-small" viewBox="0 0 400 400">
+                {leftDots.map((d) => (
+                  <circle key={d.id} cx={d.x} cy={d.y} r="2" className="ssp-dot"
+                    style={{ animationDelay: `${d.delay}s` }} />
+                ))}
+                <g transform={`translate(${lcx - 14}, ${lcy - 16})`}>
+                  <circle cx="14" cy="14" r="24" className="ssp-counselor-bg" />
+                  <path d="M17 18v-2a3.5 3.5 0 0 0-3.5-3.5h-7A3.5 3.5 0 0 0 3 16v2"
+                    fill="none" stroke="#6366f1" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                  <circle cx="10" cy="7.5" r="3.5"
+                    fill="none" stroke="#6366f1" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M25 18v-2a3.5 3.5 0 0 0-2.6-3.4"
+                    fill="none" stroke="#6366f1" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M19 2.6a3.5 3.5 0 0 1 0 6.8"
+                    fill="none" stroke="#6366f1" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                </g>
+              </svg>
+              <span className="ssp-ratio">1 : 600</span>
+              <span className="ssp-caption">Overwhelmed. Reactive. Students fall through the cracks.</span>
+            </div>
+
+            {/* ── ARROW ── */}
+            <div className="ssp-arrow">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                <path d="M8 24h28M30 16l8 8-8 8" stroke="#6366f1" strokeWidth="2.5"
+                  strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+
+            {/* ── RIGHT: With WeGuide ── */}
+            <div className="ssp-panel ssp-panel--after">
+              <span className="ssp-panel-label ssp-label--after">With WeGuide</span>
+              <div className="ssp-laptop">
+                <div className="ssp-laptop__toolbar">
+                  <span className="ssp-tl ssp-tl--red" />
+                  <span className="ssp-tl ssp-tl--yellow" />
+                  <span className="ssp-tl ssp-tl--green" />
+                </div>
+                <div className="ssp-laptop__screen">
+                  {platformImages.map((src, i) => (
+                    <img
+                      key={i}
+                      src={src}
+                      alt={`WeGuide platform view ${i + 1}`}
+                      className={`ssp-laptop__img ${i === activeImg ? 'ssp-laptop__img--active' : ''}`}
+                    />
+                  ))}
+                </div>
+              </div>
+              <div className="ssp-right-footer">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" className="ssp-right-icon">
+                  <circle cx="16" cy="16" r="15" fill="rgba(16,185,129,0.08)" stroke="rgba(16,185,129,0.25)" strokeWidth="1.2" />
+                  <path d="M19 21v-1.5a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3V21" stroke="#10b981" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+                  <circle cx="15" cy="12" r="2.5" stroke="#10b981" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M23 21v-1.5a3 3 0 0 0-2.2-2.9" stroke="#10b981" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M20 8.1a3 3 0 0 1 0 5.8" stroke="#10b981" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                <span className="ssp-right-label">Platform <span style={{color:'#6b7280'}}>+</span> Counselor</span>
+              </div>
+              <span className="ssp-caption">Every student guided. Every counselor empowered. Every school transformed.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  },
+
+  function SlideTimeComparison() {
+    const [loaded, setLoaded] = useState(false);
+    useEffect(() => {
+      const t = setTimeout(() => setLoaded(true), 80);
+      return () => clearTimeout(t);
+    }, []);
+
+    return (
+      <div className="slide slide-time">
+        <div className="slide-bg" />
+        <div className="slide-glow slide-glow--1" />
+        <div className="slide-glow slide-glow--2" />
+        <div className="slide-dots" />
+
+        <div className={`slide-inner stc-inner ${loaded ? 'loaded' : ''}`}>
+
+          {/* ── HERO NUMBERS ── */}
+          <div className="stc-hero">
+            <div className="stc-side stc-side--left">
+              <span className="stc-side-label">Traditional System</span>
+              <span className="stc-big-num stc-big-num--red">6</span>
+              <span className="stc-big-unit">hours</span>
+              <span className="stc-side-sub">720 hrs &divide; 600 students &times; 5 yrs</span>
+            </div>
+
+            <div className="stc-vs">
+              <span className="stc-vs-text">vs</span>
+            </div>
+
+            <div className="stc-side stc-side--right">
+              <span className="stc-side-label">WeGuide Model</span>
+              <span className="stc-big-num stc-big-num--green">225</span>
+              <span className="stc-big-unit">hours</span>
+              <span className="stc-side-sub">15 hrs &times; 3 terms &times; 5 yrs</span>
+            </div>
+          </div>
+
+          {/* ── BAR COMPARISON ── */}
+          <div className="stc-bars">
+            <div className="stc-bar-track">
+              <div className="stc-bar stc-bar--small">
+                <span className="stc-bar-inner-label">6 hrs</span>
+              </div>
+              <div className="stc-bar stc-bar--large">
+                <span className="stc-bar-inner-label">225 hrs</span>
+              </div>
+            </div>
+          </div>
+
+          {/* ── 37x HERO ── */}
+          <div className="stc-multiplier-wrap">
+            <span className="stc-multiplier-num">37&times;</span>
+            <span className="stc-multiplier-label">more developmental time</span>
+          </div>
+
+          {/* ── CONTRAST LINES ── */}
+          <div className="stc-contrasts">
+            <div className="stc-contrast-line">
+              <span className="stc-cl stc-cl--dim">6 hrs = conversation</span>
+              <span className="stc-cl-arrow">&rarr;</span>
+              <span className="stc-cl stc-cl--bright">225 hrs = identity formation</span>
+            </div>
+            <div className="stc-contrast-line">
+              <span className="stc-cl stc-cl--dim">6 hrs = advice</span>
+              <span className="stc-cl-arrow">&rarr;</span>
+              <span className="stc-cl stc-cl--bright">225 hrs = skill compounding</span>
+            </div>
+            <div className="stc-contrast-line">
+              <span className="stc-cl stc-cl--dim">6 hrs = pressure</span>
+              <span className="stc-cl-arrow">&rarr;</span>
+              <span className="stc-cl stc-cl--bright">225 hrs = gradual clarity</span>
+            </div>
+          </div>
+
+          {/* ── CLOSING ── */}
+          <p className="stc-closing">
+            The problem was never motivation. <span className="slide-gradient" style={{ fontWeight: 800, fontSize: '1.25rem' }}>It was time and structure.</span>
+          </p>
+        </div>
+      </div>
+    );
+  },
+
+  function SlideStatement() {
+    const [loaded, setLoaded] = useState(false);
+    useEffect(() => {
+      const t = setTimeout(() => setLoaded(true), 80);
+      return () => clearTimeout(t);
+    }, []);
+
+    return (
+      <div className="slide slide-statement">
+        <div className="slide-bg" />
+        <div className="slide-glow slide-glow--1" />
+        <div className="slide-glow slide-glow--2" />
+        <div className="slide-dots" />
+        <div className={`slide-inner slide-inner--center ${loaded ? 'loaded' : ''}`}>
+          <h1 className="sst-headline">
+            If the Gap Is <span className="sst-em sst-em--red">Structural</span>,<br />
+            the Solution Must Be <span className="sst-em sst-em--green">Infrastructural</span>.
+          </h1>
+          <p className="sst-sub">WeGuide is the Infrastructure for Human Potential.</p>
+        </div>
+      </div>
+    );
+  },
+
+  function SlideWhatIs() {
+    const [loaded, setLoaded] = useState(false);
+    useEffect(() => {
+      const t = setTimeout(() => setLoaded(true), 80);
+      return () => clearTimeout(t);
+    }, []);
+
+    return (
+      <div className="slide slide-whatis">
+        <div className="slide-bg" />
+        <div className="slide-glow slide-glow--1" />
+        <div className="slide-glow slide-glow--2" />
+        <div className="slide-dots" />
+
+        <div className={`slide-inner swi-inner ${loaded ? 'loaded' : ''}`}>
+          <span className="slide-label">WHAT IS WEGUIDE?</span>
+
+          {/* ── Definition ── */}
+          <p className="swi-definition">
+            A longitudinal development infrastructure embedded inside schools to build
+            <strong> identity</strong>, <strong>skills</strong>, and <strong>direction</strong> from ages 12&ndash;17.
+          </p>
+
+          {/* ── 3 Pillars ── */}
+          <div className="swi-pillars">
+            <div className="swi-pillar">
+              <div className="swi-pillar-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366f1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" />
+                </svg>
+              </div>
+              <h3 className="swi-pillar-title">Development Engine</h3>
+              <p className="swi-pillar-desc">A structured multi-year journey across six human dimensions.</p>
+            </div>
+            <div className="swi-pillar">
+              <div className="swi-pillar-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366f1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M3 3v18h18" /><path d="M7 16l4-8 4 5 5-9" />
+                </svg>
+              </div>
+              <h3 className="swi-pillar-title">Evidence System</h3>
+              <p className="swi-pillar-desc">Continuous tracking of student growth, skills, and mindset.</p>
+            </div>
+            <div className="swi-pillar">
+              <div className="swi-pillar-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366f1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </div>
+              <h3 className="swi-pillar-title">Guidance Amplifier</h3>
+              <p className="swi-pillar-desc">Equips counselors with longitudinal student intelligence before Grade 12.</p>
+            </div>
+          </div>
+
+          {/* ── Not / It Is ── */}
+          <div className="swi-contrast">
+            <div className="swi-contrast-col">
+              <span className="swi-contrast-label swi-contrast-label--red">WeGuide is not</span>
+              <ul className="swi-list swi-list--red">
+                <li>A career test</li>
+                <li>A one-time workshop</li>
+                <li>A Grade 12 intervention</li>
+              </ul>
+            </div>
+            <div className="swi-contrast-divider" />
+            <div className="swi-contrast-col">
+              <span className="swi-contrast-label swi-contrast-label--green">WeGuide is</span>
+              <ul className="swi-list swi-list--green">
+                <li>A 5-year developmental spine</li>
+                <li>Embedded in the academic calendar</li>
+                <li>Turning growth into measurable intelligence</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* ── Closing ── */}
+          <p className="swi-closing">
+            We don&rsquo;t wait for students to choose a future.<br />
+            <strong>We help them build the capacity to choose well.</strong>
+          </p>
+        </div>
+      </div>
+    );
+  },
+
+  function SlideJourney() {
+    const [loaded, setLoaded] = useState(false);
+    useEffect(() => {
+      const t = setTimeout(() => setLoaded(true), 80);
+      return () => clearTimeout(t);
+    }, []);
+
+    const grades = [
+      {
+        grade: 7,
+        phase: 'Exploration & Baseline',
+        title: 'Exploration & Baseline',
+        objective: 'Expand awareness. Capture early signal.',
+        color: '#6366f1',
+        img: imgGrade7,
+        sections: [
+          {
+            label: 'What Mazen Experiences',
+            items: ['Rotates across all 6 developmental dimensions', 'Hands-on studios (problem-solving, digital builds, team challenges)', 'Structured reflection after every project', 'Portfolio artifacts saved digitally'],
+          },
+          {
+            label: 'What We Capture',
+            items: ['Early skill indicators (systems reasoning, digital intuition)', 'Engagement patterns (solo vs team preference)', 'Confidence vs hesitation moments', 'Baseline radar profile generated'],
+          },
+        ],
+        outcome: {
+          stats: ['45 hours of structured development', '10+ documented artifacts', 'First growth map', 'Clear emerging analytical signal'],
+          shift: { from: 'I like computers', to: 'I think in systems.' },
+        },
+      },
+      {
+        grade: 8,
+        phase: 'Pattern Recognition & Early Strengths',
+        title: 'Pattern Recognition & Early Strengths',
+        objective: 'Strengthen signal. Deepen exposure.',
+        color: '#818cf8',
+        img: imgGrade8,
+        sections: [
+          {
+            label: 'What Mazen Experiences',
+            items: ['More complex studios across key dimensions', 'First higher-difficulty systems challenges', 'Digital problem-solving projects', 'Guided peer collaboration tasks', 'Structured growth reviews each term'],
+          },
+          {
+            label: 'What We Capture',
+            items: ['Consistency in Systems Thinking performance', 'Acceleration in Digital Fluency', 'Collaboration behavior under pressure', 'Creative risk-taking level', 'Confidence trend across terms'],
+          },
+        ],
+        outcome: {
+          stats: ['90 cumulative development hours (Grade 7 + 8)', '20+ documented portfolio artifacts', 'Strong analytical trend emerging', 'Early data-backed strength cluster'],
+          shift: { from: 'I think in systems', to: "I'm consistently strong in structured problem-solving." },
+        },
+      },
+      {
+        grade: 9,
+        phase: 'Skill Building',
+        title: 'Skill Building',
+        objective: 'Move from exploration to intentional development.',
+        color: '#10b981',
+        img: imgGrade9,
+        sections: [
+          {
+            label: 'What Mazen Experiences',
+            items: ['Selects deeper Systems & Digital studios', 'Algorithmic thinking challenges', 'Applied problem-solving projects', 'Structured teamwork simulations', 'Mid-year growth feedback session'],
+          },
+          {
+            label: 'What We Capture',
+            items: ['Performance stability in Systems Thinking', 'Growth velocity in Digital Fluency', 'Execution consistency', 'Independent task completion score', 'Emerging leadership signal'],
+          },
+        ],
+        outcome: {
+          stats: ['135 cumulative development hours', '30+ portfolio artifacts', 'Clear analytical dominance', 'Career cluster narrowing begins'],
+          shift: { from: 'Broad exploration', to: 'Technical skill compounding.' },
+        },
+      },
+      {
+        grade: 10,
+        phase: 'Signal Strength & Differentiation',
+        title: 'Signal Strength & Differentiation',
+        objective: 'Solidify strengths. Build proof.',
+        color: '#34d399',
+        img: imgGrade10,
+        sections: [
+          {
+            label: 'What Mazen Experiences',
+            items: ['Advanced systems modeling studio', 'AI & data logic challenges', 'Cross-dimension integration projects', 'Performance review with dashboard trends'],
+          },
+          {
+            label: 'What We Capture',
+            items: ['Percentile ranking across domains', 'Cross-term consistency index', 'Initiative & problem ownership score', 'Collaboration maturity growth'],
+          },
+        ],
+        outcome: {
+          stats: ['180 cumulative development hours', 'Strong Systems + Digital dominance', 'Career match engine activated', 'Early high-fit technical pathways identified'],
+          shift: { from: 'Strong student', to: 'Profile-backed technical candidate.' },
+        },
+      },
+      {
+        grade: 11,
+        phase: 'Integration & Alignment',
+        title: 'Integration & Alignment',
+        objective: 'Connect strengths to real-world pathways.',
+        color: '#f59e0b',
+        img: imgGrade11,
+        sections: [
+          {
+            label: 'What Mazen Experiences',
+            items: ['Integrated bootcamp (Systems + AI + collaboration)', 'Career pathway simulations', 'Mentor-style reflection sessions', 'University ecosystem mapping'],
+          },
+          {
+            label: 'What We Capture',
+            items: ['Stability of career fit scores', 'Cognitive complexity index', 'Stress performance indicators', 'Self-direction maturity level'],
+          },
+        ],
+        outcome: {
+          stats: ['225 cumulative development hours', 'High alignment with analytical/technical fields', 'Career match scores above 85% in top clusters', 'Reduced uncertainty'],
+          shift: { from: 'Skill strength', to: 'Strategic direction.' },
+        },
+      },
+      {
+        grade: 12,
+        phase: 'Evidence-Based Decision',
+        title: 'Evidence-Based Decision',
+        objective: 'Choose with confidence.',
+        color: '#ef4444',
+        img: imgGrade12,
+        sections: [
+          {
+            label: 'What Mazen Experiences',
+            items: ['Counselor meeting using 5-year dashboard', 'Career match report finalized', 'University vibe alignment analysis', 'Portfolio packaging support'],
+          },
+          {
+            label: 'What We Capture',
+            items: ['Final stability index', 'Strength dominance confirmation', 'Identity coherence score'],
+          },
+        ],
+        outcome: {
+          stats: ['91% Computer Science / AI', '86% Systems Engineering', '83% Data Science & Analytics', '80% Mechatronics Engineering'],
+          statsLabel: 'Career Matches',
+          extra: ['Research-Intensive — High Match', 'Innovation Hub — High Match'],
+          extraLabel: 'University Vibes',
+          shift: { from: 'Pressure', to: 'Precision.' },
+        },
+      },
+    ];
+
+    const scrollRef = useRef(null);
+    const [activeGrade, setActiveGrade] = useState(0);
+
+    useEffect(() => {
+      const container = scrollRef.current;
+      if (!container) return;
+      const onScroll = () => {
+        const sections = container.querySelectorAll('.sj-section');
+        const containerTop = container.scrollTop + container.offsetHeight * 0.4;
+        let active = 0;
+        sections.forEach((sec, i) => {
+          if (sec.offsetTop <= containerTop) active = i;
+        });
+        setActiveGrade(active);
+      };
+      container.addEventListener('scroll', onScroll, { passive: true });
+      return () => container.removeEventListener('scroll', onScroll);
+    }, []);
+
+    /* Prevent slide-level keyboard nav while scrolling inside this slide */
+    const handleWheel = (e) => {
+      const el = scrollRef.current;
+      if (!el) return;
+      const atTop = el.scrollTop === 0 && e.deltaY < 0;
+      const atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 2 && e.deltaY > 0;
+      if (!atTop && !atBottom) e.stopPropagation();
+    };
+
+    return (
+      <div className="slide slide-journey" onWheel={handleWheel}>
+        <div className="slide-bg" />
+        <div className="slide-glow slide-glow--1" />
+        <div className="slide-glow slide-glow--2" />
+
+        <div className={`slide-inner sj-inner ${loaded ? 'loaded' : ''}`}>
+          {/* ── Fixed left nav ── */}
+          <div className="sj-nav">
+            <span className="sj-nav-title">Student Journey</span>
+            {grades.map((g, i) => (
+              <button
+                key={g.grade}
+                className={`sj-nav-dot ${i === activeGrade ? 'sj-nav-dot--active' : ''}`}
+                style={{ '--dot-color': g.color }}
+                onClick={() => {
+                  const sec = scrollRef.current?.querySelectorAll('.sj-section')[i];
+                  sec?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }}
+              >
+                <span className="sj-nav-dot-circle" />
+                <span className="sj-nav-dot-label">Grade {g.grade}</span>
+              </button>
+            ))}
+          </div>
+
+          {/* ── Scrollable journey ── */}
+          <div className="sj-scroll" ref={scrollRef}>
+            {/* ── Hero intro ── */}
+            <div className="sj-section sj-section--hero">
+              <div className="sj-hero sj-hero--split">
+                <div className="sj-hero-text">
+                  <h2 className="sj-hero-title">
+                    Meet <span className="sj-hero-name">Mazen</span>
+                  </h2>
+                  <p className="sj-hero-sub">The Longitudinal Build (Grade 7&ndash;12)</p>
+                  <p className="sj-hero-bio">
+                    Mazen is 12 years old. A solid student &mdash; not struggling, not extraordinary.
+                    Good grades in math and science, average in languages, inconsistent in group projects.
+                  </p>
+                  <div className="sj-hero-traits">
+                    <div className="sj-trait">
+                      <span className="sj-trait-label">Outside school</span>
+                      <ul className="sj-trait-list">
+                        <li>Strategy video games &amp; logic puzzles</li>
+                        <li>Builds things &mdash; LEGO sets, Arduino kits</li>
+                        <li>Watches how-technology-works videos</li>
+                        <li>Prefers structured challenges over open-ended tasks</li>
+                      </ul>
+                    </div>
+                    <div className="sj-trait">
+                      <span className="sj-trait-label">In class</span>
+                      <ul className="sj-trait-list">
+                        <li>Finishes technical assignments quickly</li>
+                        <li>Rarely raises his hand unless confident</li>
+                        <li>Works better alone than in large groups</li>
+                        <li>Teachers say: <em>&ldquo;Capable but quiet.&rdquo;</em></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div className="sj-hero-avatar">
+                  <img src={imgMazen} alt="Mazen" className="sj-hero-img" />
+                </div>
+              </div>
+            </div>
+
+            {grades.map((g, i) => {
+              const isEven = i % 2 === 0;
+              return (
+                <div className="sj-section" key={g.grade}>
+                  <div className={`sj-card ${isEven ? 'sj-card--left' : 'sj-card--right'}`}>
+                    <div className="sj-card-text">
+                      <div className="sj-card-header">
+                        <span className="sj-grade-badge" style={{ background: g.color }}>{g.grade}</span>
+                        <span className="sj-phase-tag" style={{ color: g.color }}>{g.phase}</span>
+                      </div>
+                      <h3 className="sj-card-title">{g.title}</h3>
+
+                      {/* Objective line */}
+                      {g.objective && <p className="sj-card-objective">{g.objective}</p>}
+
+                      {/* Simple format */}
+                      {g.desc && <p className="sj-card-desc">{g.desc}</p>}
+                      {g.bullets && (
+                        <ul className="sj-card-bullets">
+                          {g.bullets.map((b) => (
+                            <li key={b} style={{ '--bullet-color': g.color }}>{b}</li>
+                          ))}
+                        </ul>
+                      )}
+
+                      {/* Rich format: multiple sections */}
+                      {g.sections && (
+                        <div className="sj-card-sections">
+                          {g.sections.map((sec) => (
+                            <div className="sj-card-sec" key={sec.label}>
+                              <span className="sj-card-sec-label" style={{ color: g.color }}>{sec.label}</span>
+                              <ul className="sj-card-bullets">
+                                {sec.items.map((item) => (
+                                  <li key={item} style={{ '--bullet-color': g.color }}>{item}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+
+                      {/* Outcome block */}
+                      {g.outcome && (
+                        <div className="sj-card-outcome" style={{ borderColor: `${g.color}30` }}>
+                          <span className="sj-card-sec-label" style={{ color: g.color }}>
+                            {g.outcome.statsLabel || `End of Grade ${g.grade}`}
+                          </span>
+                          <ul className="sj-card-bullets">
+                            {g.outcome.stats.map((s) => (
+                              <li key={s} style={{ '--bullet-color': g.color }}>{s}</li>
+                            ))}
+                          </ul>
+                          {g.outcome.extraLabel && (
+                            <>
+                              <span className="sj-card-sec-label" style={{ color: g.color, marginTop: '0.4rem' }}>
+                                {g.outcome.extraLabel}
+                              </span>
+                              <ul className="sj-card-bullets">
+                                {g.outcome.extra.map((e) => (
+                                  <li key={e} style={{ '--bullet-color': g.color }}>{e}</li>
+                                ))}
+                              </ul>
+                            </>
+                          )}
+                          {g.outcome.shift && (
+                            <div className="sj-shift">
+                              <span className="sj-shift-from">&ldquo;{g.outcome.shift.from}&rdquo;</span>
+                              <span className="sj-shift-arrow">&rarr;</span>
+                              <span className="sj-shift-to" style={{ color: g.color }}>&ldquo;{g.outcome.shift.to}&rdquo;</span>
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                    <div className="sj-card-image" style={{ borderColor: g.color }}>
+                      {g.img ? (
+                        <img src={g.img} alt={`Grade ${g.grade}`} className="sj-card-img" />
+                      ) : (
+                        <div className="sj-placeholder" style={{ background: `linear-gradient(135deg, ${g.color}15, ${g.color}08)` }}>
+                          <span className="sj-placeholder-grade" style={{ color: g.color }}>Grade {g.grade}</span>
+                          <span className="sj-placeholder-text">Image Placeholder</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+            <div className="sj-section sj-section--end">
+              <p className="sj-closing">
+                Mazen didn&rsquo;t guess his future.<br />
+                <strong>He accumulated evidence for it.</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  },
+
+  function SlideDashboardDemo() {
+    const [loaded, setLoaded] = useState(false);
+    useEffect(() => {
+      const t = setTimeout(() => setLoaded(true), 80);
+      return () => clearTimeout(t);
+    }, []);
+
+    const views = [
+      { label: 'Student View', color: '#6366f1', desc: 'Track your own growth, strengths, and portfolio over time.' },
+      { label: 'Parent View', color: '#10b981', desc: 'See your child\u2019s developmental trajectory with real evidence.' },
+      { label: 'Counselor View', color: '#f59e0b', desc: 'Access longitudinal student intelligence before Grade 12.' },
+      { label: 'School Admin View', color: '#ef4444', desc: 'Monitor cohort-level development trends across the school.' },
+    ];
+
+    return (
+      <div className="slide slide-dashboard-demo">
+        <div className="slide-bg" />
+        <div className="slide-glow slide-glow--1" />
+        <div className="slide-glow slide-glow--2" />
+        <div className="slide-dots" />
+
+        <div className={`slide-inner sdd-inner ${loaded ? 'loaded' : ''}`}>
+          <div className="sdd-left">
+            <span className="slide-label">THE WEGUIDE PLATFORM</span>
+            <h1 className="sdd-headline">
+              One student. <span className="slide-gradient">Four perspectives.</span>
+            </h1>
+            <p className="sdd-sub">
+              Mazen&rsquo;s journey is visible to everyone who matters &mdash; each with the right level of insight.
+            </p>
+            <div className="sdd-views">
+              {views.map((v) => (
+                <div key={v.label} className="sdd-view">
+                  <span className="sdd-view-dot" style={{ background: v.color }} />
+                  <div className="sdd-view-text">
+                    <span className="sdd-view-label" style={{ color: v.color }}>{v.label}</span>
+                    <span className="sdd-view-desc">{v.desc}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="sdd-right">
+            <div className="sdd-laptop">
+              <div className="sdd-laptop__toolbar">
+                <span className="ssp-tl ssp-tl--red" />
+                <span className="ssp-tl ssp-tl--yellow" />
+                <span className="ssp-tl ssp-tl--green" />
+              </div>
+              <div className="sdd-laptop__school-bar">
+                <img src={imgLyceeLogo} alt="School logo" className="sdd-laptop__school-logo" />
+              </div>
+              <div className="sdd-laptop__screen">
+                <video
+                  className="sdd-laptop__video"
+                  src={platformVideo2}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                />
+              </div>
+              <div className="sdd-laptop__footer">
+                <span className="sdd-laptop__footer-text">Powered by</span>
+                <img src={imgWeguideLogo} alt="WeGuide" className="sdd-laptop__footer-logo" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  },
+
+  function SlideRadar() {
+    const [loaded, setLoaded] = useState(false);
+    useEffect(() => {
+      const t = setTimeout(() => setLoaded(true), 80);
+      return () => clearTimeout(t);
+    }, []);
+
+    const dims = [
+      { label: 'Creative\nExpression', short: 'Creative Expression', color: '#f472b6' },
+      { label: 'Cognitive\nThinking', short: 'Cognitive Thinking', color: '#6366f1' },
+      { label: 'Identity\nDevelopment', short: 'Identity Development', color: '#a78bfa' },
+      { label: 'Wellbeing', short: 'Wellbeing', color: '#34d399' },
+      { label: 'Social\nConnection', short: 'Social Connection', color: '#fbbf24' },
+      { label: 'AI & Digital\nFluency', short: 'AI & Digital Fluency', color: '#38bdf8' },
+    ];
+
+    const cx = 200, cy = 200, R = 140;
+    const rings = [0.25, 0.5, 0.75, 1];
+    const angles = dims.map((_, i) => (Math.PI / 2) + (2 * Math.PI * i) / dims.length);
+    const pt = (a, r) => [cx + r * Math.cos(a), cy - r * Math.sin(a)];
+
+    // Sample student data (Mazen's profile)
+    const values = [0.55, 0.88, 0.62, 0.7, 0.58, 0.82];
+    const dataPoints = values.map((v, i) => pt(angles[i], R * v));
+
+    return (
+      <div className="slide slide-radar">
+        <div className="slide-bg" />
+        <div className="slide-glow slide-glow--1" />
+        <div className="slide-glow slide-glow--2" />
+        <div className="slide-dots" />
+
+        <div className={`slide-inner sr-inner ${loaded ? 'loaded' : ''}`}>
+          <div className="sr-left">
+            <span className="slide-label">THE WEGUIDE FRAMEWORK</span>
+            <h1 className="sr-headline">
+              <span className="slide-gradient">6 Dimensions.</span> One complete picture.
+            </h1>
+            <p className="sr-sub">
+              Every student is measured across six human dimensions &mdash; not just academics. The radar builds over time, revealing strengths, gaps, and growth trajectories.
+            </p>
+            <div className="sr-chips">
+              {dims.map((d) => (
+                <span key={d.short} className="sr-chip" style={{ borderColor: d.color, color: d.color }}>
+                  <span className="sr-chip-dot" style={{ background: d.color }} />
+                  {d.short}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="sr-right">
+            <div className="sr-radar-wrap">
+              <svg className="sr-radar-svg" viewBox="0 0 400 400">
+                {/* Ring grid */}
+                {rings.map((r) => (
+                  <polygon
+                    key={r}
+                    points={angles.map((a) => pt(a, R * r).join(',')).join(' ')}
+                    className="sr-ring"
+                  />
+                ))}
+                {/* Axis lines */}
+                {angles.map((a, i) => {
+                  const [x2, y2] = pt(a, R);
+                  return <line key={i} x1={cx} y1={cy} x2={x2} y2={y2} className="sr-axis" />;
+                })}
+                {/* Data shape */}
+                <polygon points={dataPoints.map(p => p.join(',')).join(' ')} className="sr-data" />
+                <polygon points={dataPoints.map(p => p.join(',')).join(' ')} className="sr-data-stroke" fill="none" />
+                {/* Data points */}
+                {dataPoints.map((p, i) => (
+                  <circle key={i} cx={p[0]} cy={p[1]} r={4} fill={dims[i].color} className="sr-point" />
+                ))}
+                {/* Labels */}
+                {angles.map((a, i) => {
+                  const [lx, ly] = pt(a, R + 32);
+                  return (
+                    <text
+                      key={i}
+                      x={lx}
+                      y={ly}
+                      className="sr-label"
+                      textAnchor="middle"
+                      dominantBaseline="central"
+                      fill={dims[i].color}
+                    >
+                      {dims[i].label.split('\n').map((line, li) => (
+                        <tspan key={li} x={lx} dy={li === 0 ? 0 : '1.15em'}>{line}</tspan>
+                      ))}
+                    </text>
+                  );
+                })}
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  },
+
+  function SlideAcademicModel() {
+    const [loaded, setLoaded] = useState(false);
+    useEffect(() => {
+      const t = setTimeout(() => setLoaded(true), 80);
+      return () => clearTimeout(t);
+    }, []);
+
+    const domains = [
+      { name: 'Creative Expression', short: 'CRE', color: '#ec4899' },
+      { name: 'Systems & Critical Thinking', short: 'SYS', color: '#6366f1' },
+      { name: 'Social Collaboration', short: 'SOC', color: '#f59e0b' },
+      { name: 'Identity Development', short: 'ID', color: '#10b981' },
+      { name: 'AI & Digital', short: 'AI', color: '#3b82f6' },
+      { name: 'Wellbeing', short: 'WELL', color: '#ef4444' },
+    ];
+
+    const terms = [
+      {
+        label: 'Term 1',
+        theme: 'Explore & Observe the World',
+        core: [
+          { domain: 0, code: 'CRE 101', title: 'Redesign Your Dream Room' },
+          { domain: 1, code: 'SYS 101', title: 'Crack the Smart Safe' },
+          { domain: 2, code: 'SOC 101', title: 'Debate & Dialogue' },
+          { domain: 3, code: 'ID 101', title: 'Breaking Down Role Models' },
+        ],
+        elective: { domain: 4, code: 'AI 101', title: 'Why Does My Feed Know Me?' },
+      },
+      {
+        label: 'Term 2',
+        theme: 'Build & Experiment',
+        core: [
+          { domain: 0, code: 'CRE 102', title: 'Design to Reduce Friction' },
+          { domain: 1, code: 'SYS 102', title: 'First on the Scene' },
+          { domain: 2, code: 'SOC 102', title: 'Who Decides at the Trivia?' },
+          { domain: 5, code: 'WELL 101', title: 'Move Smarter' },
+        ],
+        elective: { domain: 0, code: 'CRE 203', title: 'Design a Story Experience' },
+      },
+      {
+        label: 'Term 3',
+        theme: 'Apply & Integrate',
+        core: [
+          { domain: 0, code: 'CRE 201', title: 'Design for Someone Else' },
+          { domain: 1, code: 'SYS 201', title: 'Build a Tower That Refuses to Fall' },
+          { domain: 5, code: 'WELL 102', title: 'Train the Mind' },
+          { domain: 3, code: 'ID 102', title: 'Built, Not Born' },
+        ],
+        elective: { domain: 2, code: 'SOC 201', title: 'Negotiation Lab' },
+      },
+    ];
+
+    return (
+      <div className="slide slide-academic">
+        <div className="slide-bg" />
+        <div className="slide-glow slide-glow--1" />
+        <div className="slide-glow slide-glow--2" />
+        <div className="slide-dots" />
+
+        <div className={`slide-inner sam-inner ${loaded ? 'loaded' : ''}`}>
+          <span className="slide-label">THE ACADEMIC MODEL</span>
+          <h1 className="slide-headline">
+            <span className="slide-gradient">One Year. Three Terms. Fifteen Studios.</span>
+          </h1>
+          <p className="sam-subtitle">Each studio is a 3-hour workshop producing a tangible portfolio artifact.</p>
+
+          {/* ── Domain legend ── */}
+          <div className="sam-legend">
+            {domains.map((d) => (
+              <span className="sam-legend-item" key={d.short}>
+                <span className="sam-legend-dot" style={{ background: d.color }} />
+                {d.name}
+              </span>
+            ))}
+          </div>
+
+          {/* ── 3 Terms ── */}
+          <div className="sam-terms">
+            {terms.map((term, ti) => (
+              <div className="sam-term" key={term.label} style={{ animationDelay: `${0.2 + ti * 0.15}s` }}>
+                <div className="sam-term-header">
+                  <div className="sam-term-header-left">
+                    <span className="sam-term-label">{term.label}</span>
+                    <span className="sam-term-theme">{term.theme}</span>
+                  </div>
+                  <span className="sam-term-hours">15 hrs &middot; 5 studios</span>
+                </div>
+
+                <div className="sam-studios">
+                  <div className="sam-studio-group">
+                    <span className="sam-group-label">Core Studios</span>
+                    {term.core.map((s, si) => (
+                      <div className="sam-studio" key={si} style={{ '--s-color': domains[s.domain].color }}>
+                        <span className="sam-studio-badge" style={{ background: domains[s.domain].color }}>
+                          {s.code}
+                        </span>
+                        <span className="sam-studio-title">{s.title}</span>
+                        <span className="sam-studio-meta">3 hrs</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="sam-studio-group sam-studio-group--elective">
+                    <span className="sam-group-label">Elective</span>
+                    <div className="sam-studio sam-studio--elective" style={{ '--s-color': domains[term.elective.domain].color }}>
+                      <span className="sam-studio-badge" style={{ background: domains[term.elective.domain].color }}>
+                        {term.elective.code}
+                      </span>
+                      <span className="sam-studio-title">{term.elective.title}</span>
+                      <span className="sam-studio-meta">3 hrs</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* ── Summary strip ── */}
+          <div className="sam-summary">
+            <div className="sam-stat">
+              <span className="sam-stat-num">15</span>
+              <span className="sam-stat-label">Studios / Year</span>
+            </div>
+            <div className="sam-stat-divider" />
+            <div className="sam-stat">
+              <span className="sam-stat-num">45</span>
+              <span className="sam-stat-label">Hours / Year</span>
+            </div>
+            <div className="sam-stat-divider" />
+            <div className="sam-stat">
+              <span className="sam-stat-num">15</span>
+              <span className="sam-stat-label">Portfolio Artifacts</span>
+            </div>
+            <div className="sam-stat-divider" />
+            <div className="sam-stat">
+              <span className="sam-stat-num">6</span>
+              <span className="sam-stat-label">Domains Covered</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  },
+
+  /* ── Slide 13 — Let's Pilot One Term Together ── */
+  function SlidePilot() {
+    const [loaded, setLoaded] = useState(false);
+    useEffect(() => {
+      const t = setTimeout(() => setLoaded(true), 80);
+      return () => clearTimeout(t);
+    }, []);
+
+    const pilotItems = [
+      { icon: '🎯', text: 'One age band' },
+      { icon: '📐', text: 'Two developmental dimensions' },
+      { icon: '🧩', text: 'Five structured studios' },
+      { icon: '📅', text: 'One academic term' },
+    ];
+
+    const outcomes = [
+      'Higher student engagement',
+      'Clearer identity signals',
+      'Measurable skill development',
+      'Actionable insight for counselors',
+    ];
+
+    return (
+      <div className={`slide slide-pilot ${loaded ? 'loaded' : ''}`}>
+        <div className="spl-inner">
+          <h1 className="spl-title">Let's Pilot One Term Together</h1>
+
+          <p className="spl-intro">
+            Your school is already shaping character, discipline, and academic excellence.<br />
+            WeGuide multiplies that impact — <strong>structurally</strong> and <strong>measurably</strong>.
+          </p>
+
+          <div className="spl-start-label">Start with:</div>
+
+          <div className="spl-items">
+            {pilotItems.map((item, i) => (
+              <div className="spl-item" key={i} style={{ animationDelay: `${0.3 + i * 0.12}s` }}>
+                <span className="spl-item-icon">{item.icon}</span>
+                <span className="spl-item-text">{item.text}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="spl-promises">
+            <span className="spl-promise">No overhaul.</span>
+            <span className="spl-promise">No disruption.</span>
+            <span className="spl-promise-em">Just a focused pilot embedded into your calendar.</span>
+          </div>
+
+          <div className="spl-outcomes">
+            <div className="spl-outcomes-label">Within a single term, you will see:</div>
+            <div className="spl-outcomes-list">
+              {outcomes.map((o, i) => (
+                <div className="spl-outcome" key={i} style={{ animationDelay: `${0.6 + i * 0.1}s` }}>
+                  <span className="spl-outcome-check">✓</span>
+                  <span>{o}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <p className="spl-closing">
+            Start small. Measure impact. <strong>Scale with confidence.</strong>
+          </p>
+        </div>
+      </div>
+    );
+  },
+
+  /* ── Slide 14 — Closing ── */
+  function SlideClosing() {
+    const [loaded, setLoaded] = useState(false);
+    useEffect(() => {
+      const t = setTimeout(() => setLoaded(true), 80);
+      return () => clearTimeout(t);
+    }, []);
+
+    return (
+      <div className={`slide slide-closing ${loaded ? 'loaded' : ''}`}>
+        <div className="scl-inner">
+          <h1 className="scl-title">
+            Empower Your Students<br />
+            <span className="scl-title-em">Before They Reach Uncertainty</span>
+          </h1>
+
+          <p className="scl-bridge">
+            WeGuide ensures that when students sit for university and career counseling,<br />
+            they arrive with <strong>years of structured growth</strong> behind them.
+          </p>
+
+          <div className="scl-three">
+            <span className="scl-three-item">Identity explored.</span>
+            <span className="scl-three-item">Skills built.</span>
+            <span className="scl-three-item">Direction informed by evidence.</span>
+          </div>
+
+          <div className="scl-cta">
+            <p className="scl-cta-line">Let's Multiply the Work Your School Is Already Doing.</p>
+          </div>
         </div>
       </div>
     );
