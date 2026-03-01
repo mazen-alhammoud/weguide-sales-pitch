@@ -26,8 +26,8 @@ const SLIDES = [
             <span className="slide-label">A SHARED COMMITMENT</span>
 
             <h1 className="slide-headline">
-              Every student deserves to graduate with{' '}
-              <span className="slide-gradient">clarity, capability, and direction.</span>
+              The future facing students is more{' '}
+              <span className="slide-gradient">uncertain and complex than ever.</span>
             </h1>
 
             <p className="slide-subheader">
@@ -139,13 +139,13 @@ const SLIDES = [
           <span className="slide-label">STRATEGIC CONTEXT</span>
 
           <h1 className="slide-headline">
-            As economies evolve, the role of education{' '}
-            <span className="slide-gradient">evolves with them.</span>
+            The demands on schools have expanded, but{' '}
+            <span className="slide-gradient">the structures have not.</span>
           </h1>
 
           <p className="slide-subheader">
-            Each major economic era has reshaped what schools prepare students
-            to know, to do, and to become.
+            Students now require capabilities beyond academic mastery to thrive after graduation. Yet most school systems were not designed to
+            develop these outcomes systematically, across years, with continuity and evidence.
           </p>
 
           {/* Historical timeline — 4 eras */}
@@ -234,18 +234,16 @@ const SLIDES = [
         <div className="slide-dots" />
 
         <div className={`slide-inner ${loaded ? 'loaded' : ''}`}>
-          <span className="slide-label">THE DESIGN IMPERATIVE</span>
+          <span className="slide-label">THE STUDENT IMPACT</span>
 
           <h1 className="slide-headline">
-            The skills-based era requires{' '}
-            <span className="slide-gradient">intentional developmental design.</span>
+            Many students graduate academically strong,{' '}
+            <span className="slide-gradient">but directionally unprepared.</span>
           </h1>
 
           <p className="slide-subheader">
-            Academic programs and extracurricular offerings were built to support
-            achievement and enrichment. Today&rsquo;s environment demands a structured
-            system that develops identity, adaptability, and informed direction
-            over time.
+            When development is left to chance, students often enter Grade 11–12 making high-stakes choices with limited structured guidance,
+            unclear self-understanding, and little evidence of who they are becoming beyond grades.
           </p>
 
           {/* Three pillars */}
@@ -260,12 +258,12 @@ const SLIDES = [
                   </svg>
                 </div>
               </div>
-              <h3 className="s3-pillar-title">Academic Systems Optimize for Performance</h3>
-              <p className="s3-pillar-desc">Schools are highly effective at delivering:</p>
+              <h3 className="s3-pillar-title">Decisions Become Pressure-Driven</h3>
+              <p className="s3-pillar-desc">Students often default to:</p>
               <ul className="s3-pillar-list">
-                <li>Subject mastery</li>
-                <li>Assessment rigor</li>
-                <li>Competitive university placement</li>
+                <li>External expectations</li>
+                <li>Prestige-driven pathways</li>
+                <li>Last-minute major selection</li>
               </ul>
             </div>
 
@@ -280,13 +278,13 @@ const SLIDES = [
                   </svg>
                 </div>
               </div>
-              <h3 className="s3-pillar-title">The New Era Optimizes for Adaptability</h3>
-              <p className="s3-pillar-desc">Today&rsquo;s learners must develop:</p>
+              <h3 className="s3-pillar-title">Capabilities Stay Invisible</h3>
+              <p className="s3-pillar-desc">Beyond grades, students lack:</p>
               <ul className="s3-pillar-list">
-                <li>Self-awareness and direction</li>
-                <li>Transferable capabilities</li>
-                <li>Career adaptability</li>
-                <li>Long-term resilience</li>
+                <li>Documented skill evidence</li>
+                <li>Growth narrative continuity</li>
+                <li>Clarity signals over time</li>
+                <li>Reflective decision habits</li>
               </ul>
             </div>
 
@@ -302,18 +300,17 @@ const SLIDES = [
                   </svg>
                 </div>
               </div>
-              <h3 className="s3-pillar-title s3-pillar-title--active">Development Requires Design</h3>
+              <h3 className="s3-pillar-title s3-pillar-title--active">Development Needs a System</h3>
               <p className="s3-pillar-desc">
-                Adaptability and direction do not emerge incidentally. They require
-                structured progression, reflection, and longitudinal guidance.
+                Direction and adaptability do not emerge incidentally. Students need structured progression, reflection,
+                and longitudinal guidance — starting early.
               </p>
-              <span className="s3-inflection">This is the inflection point.</span>
+              <span className="s3-inflection">This is the missing architecture.</span>
             </div>
           </div>
 
           <p className="slide-takeaway">
-            This is not an addition to existing systems &mdash; it is a complementary
-            developmental architecture designed for the emerging era.
+            The gap is not academic performance; it is the absence of a structured pathway from uncertainty to clarity.
           </p>
         </div>
       </div>
@@ -376,8 +373,8 @@ const SLIDES = [
           </h1>
 
           <p className="slide-subheader">
-            A longitudinal framework that develops identity, capability, and
-            direction from early adolescence through graduation.
+            A longitudinal framework that builds identity clarity, transferable capability, and decision readiness
+            from early adolescence through graduation.
           </p>
 
           {/* Two graphics side-by-side */}
@@ -509,34 +506,34 @@ const SLIDES = [
     const stages = [
       {
         num: '01',
-        title: 'Diagnostic Foundation',
+        title: 'Baseline Clarity',
         items: [
-          'Baseline identity & capability mapping',
-          'Student development profile',
-          'Initial strength & interest insights',
+          'Identity & capability mapping',
+          'Student development starting point',
+          'Early strengths & interest signals',
         ],
       },
       {
         num: '02',
-        title: 'Structured Workshops',
+        title: 'Challenge-Based Studios',
         items: [
-          'Term-based guided developmental sessions',
+          'Term-based guided development sessions',
           'Applied projects & skill-building',
           'Cross-dimensional integration',
         ],
       },
       {
         num: '03',
-        title: 'Longitudinal Tracking',
+        title: 'Portfolio & Growth Evidence',
         items: [
-          'Growth measurement across six dimensions',
-          'Portfolio artifact creation',
+          'Measurable growth across six dimensions',
+          'Portfolio artifacts that prove capability',
           'Reflection & advisor checkpoints',
         ],
       },
       {
         num: '04',
-        title: 'Decision Lab',
+        title: 'Decision Readiness',
         items: [
           'Major alignment analysis',
           'Career pathway exploration',
@@ -556,13 +553,13 @@ const SLIDES = [
           <span className="slide-label">THE WEGUIDE DEVELOPMENT SYSTEM</span>
 
           <h1 className="slide-headline">
-            An integrated system for{' '}
-            <span className="slide-gradient">identity, capability, and decision readiness.</span>
+            How students build{' '}
+            <span className="slide-gradient">clarity, capability, and decision readiness.</span>
           </h1>
 
           <p className="slide-subheader">
-            Five interconnected components that form a continuous developmental
-            loop &mdash; from initial insight through informed post-graduation direction.
+            Four connected components that form a continuous developmental loop — turning lived experiences into
+            documented growth and informed post-graduation direction.
           </p>
 
           {/* Pipeline flow */}
@@ -579,7 +576,7 @@ const SLIDES = [
                   </svg>
                 </div>
                 <span className="s5-dashboard-title">Intelligent Dashboard</span>
-                <span className="s5-dashboard-desc">Student radar growth &middot; Counselor &amp; parent visibility &middot; Development continuity reports</span>
+                <span className="s5-dashboard-desc">Student growth radar &middot; Counselor &amp; parent visibility &middot; Development continuity reports</span>
               </div>
 
               {/* Loop return path (SVG behind cards) */}
@@ -633,7 +630,7 @@ const SLIDES = [
           </div>
 
           <p className="slide-takeaway">
-            From baseline insight to informed university decisions &mdash; structured across six years.
+            From baseline clarity to confident university decisions — built and evidenced over six years.
           </p>
         </div>
       </div>
@@ -654,7 +651,7 @@ const SLIDES = [
       { grade: 8, title: 'Identity Awareness', phase: 'Exploration',
         items: ['Emerging interests mapped', 'Early capability indicators', 'Development portfolio initiated'] },
       { grade: 9, title: 'Skill Foundation', phase: 'Skill Development',
-        items: ['Applied workshops', 'Project-based artifacts', 'Cross-domain integration'] },
+        items: ['Applied studios', 'Project-based artifacts', 'Cross-domain integration'] },
     ];
 
     /* Bottom row: displayed 12←11←10 (path flows right-to-left) */
@@ -698,8 +695,8 @@ const SLIDES = [
           </h1>
 
           <p className="slide-subheader">
-            Six years of intentional development &mdash; each grade building
-            on the last, turning uncertainty into clarity.
+            Six years of intentional development, each grade building on the last, turning uncertainty into clarity,
+            and experience into evidence.
           </p>
 
           <div className="s6-journey">
@@ -745,8 +742,7 @@ const SLIDES = [
           </div>
 
           <p className="slide-takeaway">
-            Students do not &ldquo;suddenly decide&rdquo; in Grade 11 &mdash;
-            they build toward clarity over six years.
+            Students do not &ldquo;suddenly decide&rdquo; in Grade 11 — they build toward clarity through repeated cycles of action, reflection, and evidence.
           </p>
         </div>
       </div>
@@ -771,7 +767,7 @@ const SLIDES = [
           <span className="slide-label">THE STUDIO MODEL</span>
 
           <h1 className="slide-headline">
-            Every studio is a challenge &mdash;{' '}
+            Every studio is a challenge,{' '}
             <span className="slide-gradient">not a lecture.</span>
           </h1>
 
@@ -854,8 +850,7 @@ const SLIDES = [
           </div>
 
           <p className="slide-takeaway">
-            Studios transform development from abstract discussion into
-            observable, documentable growth.
+            Studios transform development from abstract discussion into observable, documentable student growth.
           </p>
         </div>
       </div>
@@ -901,7 +896,7 @@ const SLIDES = [
               />
             </div>
             <span className="s8-video-caption">
-              Live studio session &mdash; student copilot interface
+              Live studio session: student copilot interface
             </span>
           </div>
 
@@ -910,15 +905,13 @@ const SLIDES = [
             <span className="slide-label">STUDIO IN ACTION</span>
 
             <h1 className="slide-headline">
-              In-person development, powered by an{' '}
-              <span className="slide-gradient">intelligent copilot.</span>
+              In-person development, supported by{' '}
+              <span className="slide-gradient">real-time guidance and evidence capture.</span>
             </h1>
 
             <p className="slide-subheader">
-              Studios are conducted face-to-face. An AI-powered online copilot
-              accompanies every session &mdash; capturing interaction patterns,
-              evaluating developmental signals, and surfacing structured growth
-              data in real time.
+              Studios are conducted face-to-face. An AI-powered online copilot accompanies every session,
+              helping students stay intentional, capturing key learning moments, and translating participation into structured growth evidence.
             </p>
 
             {/* Two callout cards */}
@@ -952,9 +945,8 @@ const SLIDES = [
                 <div>
                   <h4 className="s8-callout-title s8-callout-title--active">Online Copilot</h4>
                   <p className="s8-callout-desc">
-                    Gauges interaction quality, scores developmental criteria,
-                    and extracts actionable signal &mdash; transforming every
-                    session into structured, measurable data.
+                    Helps students reflect, surfaces developmental criteria, and extracts actionable signal —
+                    transforming each session into reliable, measurable evidence over time.
                   </p>
                 </div>
               </div>
@@ -988,8 +980,8 @@ const SLIDES = [
           </h1>
 
           <p className="slide-subheader">
-            WeGuide integrates within existing structures and strengthens
-            current counseling and academic systems.
+            WeGuide integrates within existing structures so students receive consistent development
+            without adding operational burden or timetable disruption.
           </p>
 
           {/* Three implementation pillars */}
@@ -1032,10 +1024,10 @@ const SLIDES = [
               </div>
               <h3 className="s9-pillar-title">Amplifies Counseling, Does Not Replace It</h3>
               <ul className="s9-pillar-list">
-                <li>Provides longitudinal student development data</li>
-                <li>Surfaces early clarity signals</li>
+                <li>Provides longitudinal student development evidence</li>
+                <li>Surfaces early clarity and growth signals</li>
                 <li>Strengthens Grade 11&ndash;12 decision conversations</li>
-                <li>Enhances university narrative building</li>
+                <li>Improves university narrative building</li>
               </ul>
               <span className="s9-pillar-message s9-pillar-message--mid">We empower your counselors.</span>
             </div>
@@ -1062,7 +1054,7 @@ const SLIDES = [
           </div>
 
           <p className="slide-takeaway">
-            Structured workshops. Institutional control. Enhanced insight.
+            Structured delivery. Institutional control. Student growth made visible.
           </p>
         </div>
       </div>
@@ -1087,13 +1079,13 @@ const SLIDES = [
           <span className="slide-label">DEVELOPMENTAL INTELLIGENCE</span>
 
           <h1 className="slide-headline">
-            From Workshops to{' '}
-            <span className="slide-gradient">Developmental Intelligence.</span>
+            From experiences to{' '}
+            <span className="slide-gradient">evidence-backed student success.</span>
           </h1>
 
           <p className="slide-subheader">
-            WeGuide transforms multi-year experiential learning into structured,
-            reliability-adjusted insight that informs university and career decisions.
+            WeGuide converts multi-year experiential learning into structured, reliability-adjusted insight —
+            so university and career conversations are guided by evidence, not speculation.
           </p>
 
           {/* Three intelligence tiers */}
@@ -1124,7 +1116,7 @@ const SLIDES = [
               <span className="s10-tier-signal">
                 Scored using structured performance anchors.
               </span>
-              <span className="s10-tier-message">This is not subjective.</span>
+              <span className="s10-tier-message">Students can see what they are building.</span>
             </div>
 
             {/* Tier 2 — Longitudinal Modeling */}
@@ -1139,8 +1131,7 @@ const SLIDES = [
               </div>
               <h3 className="s10-tier-title">Longitudinal Modeling</h3>
               <p className="s10-tier-desc">
-                Evidence is reliability-weighted, stabilized against
-                overinterpretation, and modeled across contexts to identify:
+                Evidence is reliability-weighted and modeled across contexts to identify:
               </p>
               <ul className="s10-tier-list">
                 <li>Growth velocity</li>
@@ -1148,7 +1139,7 @@ const SLIDES = [
                 <li>Identity&ndash;behavior coherence</li>
                 <li>Interest&ndash;performance alignment</li>
               </ul>
-              <span className="s10-tier-message s10-tier-message--mid">This is disciplined, not anecdotal.</span>
+              <span className="s10-tier-message s10-tier-message--mid">Counseling moves from anecdotes to patterns.</span>
             </div>
 
             {/* Tier 3 — Grade 12 Synthesis */}
@@ -1175,7 +1166,7 @@ const SLIDES = [
                 <span>No labeling.</span>
                 <span>No algorithmic career assignment.</span>
               </div>
-              <span className="s10-tier-message s10-tier-message--active">Ethical. Reflective. Responsible.</span>
+              <span className="s10-tier-message s10-tier-message--active">Evidence-led, student-owned, institutionally governed.</span>
             </div>
           </div>
 
@@ -1201,7 +1192,7 @@ const SLIDES = [
           </div>
 
           <p className="slide-takeaway">
-            Career conversations shift from speculation to evidence-based interpretation.
+            Students gain clarity earlier — and schools gain a defensible basis for guidance.
           </p>
         </div>
       </div>
@@ -1235,8 +1226,8 @@ const SLIDES = [
           <span className="slide-label">INSTITUTIONAL DASHBOARD</span>
 
           <h1 className="slide-headline">
-            A Dedicated Institutional Dashboard for{' '}
-            <span className="slide-gradient">Leadership and Counseling.</span>
+            Visibility into student growth for{' '}
+            <span className="slide-gradient">leadership and counseling.</span>
           </h1>
 
           {/* Full-width video */}
@@ -1279,13 +1270,13 @@ const SLIDES = [
           <span className="slide-label">PILOT PROGRAM</span>
 
           <h1 className="slide-headline">
-            A Structured 8-Week Pilot &mdash;{' '}
-            <span className="slide-gradient">No Long-Term Commitment Required.</span>
+            <span className="slide-gradient">An 8-week pilot to prove WeGuide's impact in your school.{' '}</span> 
+            No long-term commitment required.
           </h1>
 
           <p className="slide-subheader">
-            An opportunity to evaluate WeGuide within one grade level before
-            entering a longitudinal partnership.
+            A controlled starting point to evaluate WeGuide in one grade level, with visible student outcomes and a clear
+            decision pathway for longitudinal implementation.
           </p>
 
           {/* Two-column layout */}
@@ -1323,26 +1314,26 @@ const SLIDES = [
               <h3 className="s12-col-title s12-col-title--active">What the School Receives</h3>
 
               <div className="s12-section">
-                <span className="s12-section-label">Student Experience</span>
+                <span className="s12-section-label">Student Outcomes</span>
                 <ul className="s12-list">
                   <li>5 challenge-based studios</li>
-                  <li>Tangible artifact production</li>
-                  <li>Structured reflection</li>
-                  <li>Observable developmental evidence</li>
+                  <li>Artifacts that demonstrate capability</li>
+                  <li>Structured reflection habits</li>
+                  <li>Early clarity and growth signals</li>
                 </ul>
               </div>
 
               <div className="s12-section">
-                <span className="s12-section-label">Institutional Access</span>
+                <span className="s12-section-label">Institutional Evidence</span>
                 <ul className="s12-list">
                   <li>Full access to the WeGuide platform</li>
-                  <li>Student-level developmental dashboards</li>
+                  <li>Student-level development dashboards</li>
                   <li>Cohort-level analytics</li>
                   <li>End-of-term institutional report</li>
                 </ul>
               </div>
 
-              <span className="s12-col-message s12-col-message--active">You see the system in action.</span>
+              <span className="s12-col-message s12-col-message--active">You see measurable impact.</span>
             </div>
           </div>
 
@@ -1361,7 +1352,7 @@ const SLIDES = [
             <div className="s12-eval-items">
               <span>Leadership review meeting</span>
               <span className="s12-eval-sep">&middot;</span>
-              <span>Developmental analytics presentation</span>
+              <span>Student outcome &amp; analytics presentation</span>
               <span className="s12-eval-sep">&middot;</span>
               <span>Counselor feedback discussion</span>
               <span className="s12-eval-sep">&middot;</span>
@@ -1370,7 +1361,7 @@ const SLIDES = [
           </div>
 
           <p className="slide-takeaway">
-            Experience the system. Review the evidence. Decide confidently.
+            Experience the student journey. Review the evidence. Decide confidently.
           </p>
         </div>
       </div>
@@ -1395,8 +1386,8 @@ const SLIDES = [
           <span className="slide-label">LONG-TERM PARTNERSHIP</span>
 
           <h1 className="slide-headline">
-            A Partnership Model &mdash;{' '}
-            <span className="slide-gradient">Not a Program Purchase.</span>
+            A partnership model that sustains{' '}
+            <span className="slide-gradient">student development over time.</span>
           </h1>
 
           {/* Three assurance columns */}
@@ -1464,7 +1455,7 @@ const SLIDES = [
           </div>
 
           <p className="slide-takeaway">
-            WeGuide works alongside your institution &mdash; not outside it.
+            Consistency is the point: student growth becomes cumulative, not episodic.
           </p>
         </div>
       </div>
@@ -1583,7 +1574,6 @@ const SLIDES = [
       </div>
     );
   },
-
 ];
 
 export default function Presentation() {
@@ -1609,17 +1599,13 @@ export default function Presentation() {
   }, [goNext, goPrev, goHome]);
 
   const SlideComponent = SLIDES[current];
-
   const progressPct = ((current + 1) / total) * 100;
 
   return (
     <div className="presentation">
       {/* Progress bar */}
       <div className="pres-progress">
-        <div
-          className="pres-progress-fill"
-          style={{ width: `${progressPct}%` }}
-        />
+        <div className="pres-progress-fill" style={{ width: `${progressPct}%` }} />
       </div>
 
       {/* Close button */}
