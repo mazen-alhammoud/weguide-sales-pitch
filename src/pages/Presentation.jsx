@@ -37,8 +37,8 @@ const SLIDES = [
         num: '01',
         name: 'The High-Performing Drifter',
         tag: 'High achiever, no direction',
-        quote: 'Top grades. Strong resume. No internal clarity.',
-        desc: 'Performs well but lacks identity-based direction. Success without strategy.',
+        quote: 'Jana wants to apply to engineering, medicine, and law.',
+        desc: '',
         img: imgDrifter,
         icon: (
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -48,10 +48,10 @@ const SLIDES = [
       },
       {
         num: '02',
-        name: 'The Silent Slipper',
+        name: 'The Late Realizer',
         tag: 'Falling behind, unnoticed',
-        quote: 'Not failing. Just slowly disengaging.',
-        desc: 'Motivation fluctuates. Potential exists but is not activated.',
+        quote: "Lara wants to apply to King's College London, but still does not know about IELTS.",
+        desc: '',
         img: imgSlipper,
         icon: (
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -63,8 +63,8 @@ const SLIDES = [
         num: '03',
         name: 'The Borrowed Dreamer',
         tag: 'Parent-driven student',
-        quote: 'Ambition outsourced.',
-        desc: 'Path shaped by expectations rather than self-awareness.',
+        quote: 'Karim wants to become a doctor like his parents.',
+        desc: '',
         img: imgDreamer,
         icon: (
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -76,8 +76,8 @@ const SLIDES = [
         num: '04',
         name: 'The October Panicker',
         tag: 'Grade 12 crisis student',
-        quote: 'University deadlines approaching.',
-        desc: 'Decisions made under pressure, not evidence.',
+        quote: 'Farah is just one week away from the university application deadline and has not yet completed her submissions.',
+        desc: '',
         img: imgPanicker,
         icon: (
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -359,155 +359,67 @@ const SLIDES = [
     );
   },
 
-  function SlideGapPersonas() {
+  function SlideConsequences() {
     const [loaded, setLoaded] = useState(false);
     useEffect(() => {
       const t = setTimeout(() => setLoaded(true), 80);
       return () => clearTimeout(t);
     }, []);
 
-    const gaps = [
+    const pillars = [
       {
-        id: 'capacity',
-        label: 'Capacity Gap',
+        title: 'Identity Crisis',
+        desc: 'Students lack self-awareness tools and structured reflection, leaving them unable to articulate who they are or what they want.',
         icon: (
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="10" /><path d="M12 16v-4" /><path d="M12 8h.01" />
           </svg>
         ),
       },
       {
-        id: 'continuity',
-        label: 'Continuity Gap',
+        title: 'Lack of Exposure',
+        desc: 'Students are rarely introduced to careers, industries, or paths outside their immediate circle — narrowing their aspirations before they even begin.',
         icon: (
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="10" /><line x1="2" y1="12" x2="22" y2="12" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
           </svg>
         ),
       },
       {
-        id: 'evidence',
-        label: 'Evidence Gap',
+        title: 'Invisible Growth',
+        desc: 'Students grow and evolve every year, but without a system to capture that journey, none of it becomes visible or actionable.',
         icon: (
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" />
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /><polyline points="10 9 9 9 8 9" />
           </svg>
         ),
-      },
-    ];
-
-    const personas = [
-      {
-        name: 'The High-Performing Drifter',
-        bornFrom: ['continuity', 'evidence'],
-        bornLabel: 'Continuity + Evidence Gap',
-        points: [
-          'Strong grades.',
-          'No longitudinal identity development.',
-          'No structured signal of strengths.',
-        ],
-        outcome: 'Performs well, lacks direction.',
-        img: imgDrifter,
-      },
-      {
-        name: 'The Silent Slipper',
-        bornFrom: ['capacity', 'continuity'],
-        bornLabel: 'Capacity + Continuity Gap',
-        points: [
-          'Limited individual attention.',
-          'Fragmented engagement.',
-          'No early activation of potential.',
-        ],
-        outcome: 'Gradual disengagement, unnoticed.',
-        img: imgSlipper,
-      },
-      {
-        name: 'The Borrowed Dreamer',
-        bornFrom: ['evidence'],
-        bornLabel: 'Evidence Gap',
-        points: [
-          'No documented growth signal.',
-          'No self-awareness infrastructure.',
-          'Parents fill the vacuum.',
-        ],
-        outcome: 'Ambition outsourced.',
-        img: imgDreamer,
-      },
-      {
-        name: 'The October Panicker',
-        bornFrom: ['capacity', 'evidence'],
-        bornLabel: 'Capacity + Evidence Gap',
-        points: [
-          'Late-stage conversations.',
-          'No accumulated portfolio.',
-          'Deadlines approaching.',
-        ],
-        outcome: 'Decisions under pressure.',
-        img: imgPanicker,
       },
     ];
 
     return (
-      <div className="slide slide-gap-personas">
+      <div className="slide slide-consequences">
         <div className="slide-bg" />
         <div className="slide-glow slide-glow--1" />
         <div className="slide-glow slide-glow--2" />
         <div className="slide-dots" />
 
-        {/* Sticky header */}
-        <div className={`sgp-sticky ${loaded ? 'loaded' : ''}`}>
-          <span className="slide-label">CAUSE AND EFFECT</span>
+        <div className={`slide-inner ${loaded ? 'loaded' : ''}`}>
+          <span className="slide-label">STRUCTURAL CONSEQUENCES</span>
 
           <h1 className="slide-headline">
-            When structure fails,{' '}
-            <span className="slide-gradient">patterns emerge.</span>
+            When guidance infrastructure is missing, students experience{' '}
+            <span className="slide-gradient">predictable outcomes.</span>
           </h1>
 
-          <div className="sgp-gaps">
-            {gaps.map((g) => (
-              <div key={g.id} className="sgp-gap">
-                <div className="sgp-gap-icon">{g.icon}</div>
-                <span className="sgp-gap-label">{g.label}</span>
+          <div className="sc-pillars">
+            {pillars.map((p, i) => (
+              <div key={p.title} className="sc-pillar" style={{ animationDelay: `${0.4 + i * 0.15}s` }}>
+                <div className="sc-pillar-icon">{p.icon}</div>
+                <h3 className="sc-pillar-title">{p.title}</h3>
+                <p className="sc-pillar-desc">{p.desc}</p>
               </div>
             ))}
           </div>
-
-          <div className="sgp-connector">
-            <span className="sgp-connector-line" />
-            <span className="sgp-connector-text">These constraints shape student behavior.</span>
-            <svg className="sgp-connector-arrow" width="14" height="10" viewBox="0 0 14 10" fill="none">
-              <path d="M1 1l6 8 6-8" stroke="rgba(99,102,241,0.5)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </div>
-        </div>
-
-        {/* Scrolling persona cards */}
-        <div className={`sgp-scroll ${loaded ? 'loaded' : ''}`}>
-          {personas.map((p, idx) => (
-            <div key={p.name} className="sgp-card">
-              <div className="sgp-card-img">
-                <img src={p.img} alt={p.name} />
-              </div>
-              <div className="sgp-card-body">
-                <span className="sgp-card-num">{'0' + (idx + 1)}</span>
-                <h3 className="sgp-card-name">{p.name}</h3>
-                <span className="sgp-card-born">{p.bornLabel}</span>
-                <ul className="sgp-card-list">
-                  {p.points.map((pt, i) => (
-                    <li key={i}>{pt}</li>
-                  ))}
-                </ul>
-                <div className="sgp-card-outcome">
-                  <span className="sgp-card-arrow">&rarr;</span>
-                  {p.outcome}
-                </div>
-              </div>
-            </div>
-          ))}
-
-          <p className="slide-takeaway sgp-footer">
-            The personas are not personality types. They are structural outcomes.
-          </p>
         </div>
       </div>
     );
@@ -561,7 +473,7 @@ const SLIDES = [
 
         <div className={`slide-inner slide-inner--center ${loaded ? 'loaded' : ''}`}>
           <h1 className="slide-headline slide-headline--hero">
-            <span className="slide-gradient">What If We Gave Schools Superpowers?</span>
+            <span className="slide-gradient">What If We Gave You Superpowers?</span>
           </h1>
 
           <div className="ssp-split">

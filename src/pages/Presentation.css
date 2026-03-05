@@ -4352,6 +4352,69 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* ── Slide: Structural Consequences ── */
+.sc-pillars {
+  display: flex;
+  justify-content: center;
+  gap: 1.4rem;
+  width: 100%;
+  max-width: 900px;
+  margin: 0.5rem auto 0;
+}
+
+.sc-pillar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  padding: 1.6rem 1.2rem;
+  border-radius: 14px;
+  background: rgba(239, 68, 68, 0.03);
+  border: 1px solid rgba(239, 68, 68, 0.1);
+  opacity: 0;
+  animation: sc-in 0.55s ease both;
+}
+
+@keyframes sc-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.sc-pillar-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(239, 68, 68, 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ef4444;
+  margin-bottom: 0.2rem;
+}
+
+.sc-pillar-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+.sc-pillar-desc {
+  font-size: 0.78rem;
+  color: #6b7280;
+  line-height: 1.55;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .sc-pillars {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+}
+
 /* 3 Pillars */
 .swi-pillars {
   display: flex;
